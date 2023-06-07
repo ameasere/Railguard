@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="images">
+    <file>success_splash_label.png</file>
+    <file>ssg+.png</file>
+  </qresource>
+  <qresource prefix="icons">
+    <file>../images/icons/chevrons-right_hover.png</file>
+    <file>../images/icons/chevrons-right_unhover.png</file>
+    <file>../images/icons/arrow-down_hover.png</file>
+    <file>../images/icons/arrow-down_unhover.png</file>
+    <file>../images/icons/check.png</file>
+    <file>../images/icons/maximize.png</file>
+    <file>../images/icons/menu_hover.png</file>
+    <file>../images/icons/menu_unhover.png</file>
+    <file>../images/icons/minimize.png</file>
+    <file>../images/icons/settings.png</file>
+    <file>../images/icons/x.png</file>
+    <file>../images/icons/home_hover.png</file>
+    <file>../images/icons/home_unhover.png</file>
+  </qresource>
+</RCC>
