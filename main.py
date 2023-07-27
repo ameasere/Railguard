@@ -7,7 +7,7 @@ Main Driver Code for SSGPlus
 # PROJECT MADE WITH: Qt Designer and PySide6
 # V: 0.0.1
 # ///////////////////////////////////////////////////////////////
-# Developed by Leighton Brooks (enigmapr0ject)
+# Developed by Leighton Brooks (ameasere)
 import base64
 import ntpath
 import os
@@ -281,7 +281,7 @@ class MainWindow(QMainWindow):
 
         hash = sha256("dDhAI4aDx7tqJmqXwhLn".encode()).hexdigest()
         headers = {"Authorization": f"Bearer {hash}"}
-        r2 = requests.get("https://api.enigmapr0ject.tech/ssgplus/modelVersion", headers=headers)
+        r2 = requests.get("https://api.ameasere.com/ssgplus/modelVersion", headers=headers)
         if r2.status_code == 200:
             self.ui.modelVersion.setText(r2.json()['version'])
         else:
@@ -541,11 +541,11 @@ class MainWindow(QMainWindow):
                 else:
                     self.ui.credits.hide()
             case "btn_help":
-                webbrowser.get().open("https://enigmapr0ject.tech/ssgplus")
+                webbrowser.get().open("https://ameasere.com/ssgplus")
             case "btn_report":
                 webbrowser.get().open("https://github.com/enigmapr0ject/SSGPlus/issues/new/choose")
             case "btn_more":
-                webbrowser.get().open("https://enigmapr0ject.tech/")
+                webbrowser.get().open("https://ameasere.com/")
 
     # RESIZE EVENTS
     def resizeEvent(self, event):
@@ -714,7 +714,7 @@ class SplashScreen(QMainWindow):
         hash = sha256("dDhAI4aDx7tqJmqXwhLn".encode()).hexdigest()
         headers = {"Authorization": f"Bearer {hash}"}
         try:
-            r = requests.get("https://api.enigmapr0ject.tech/ssgplus/model", headers=headers, stream=True)
+            r = requests.get("https://api.ameasere.com/ssgplus/model", headers=headers, stream=True)
             if r.status_code == 200:
                 total_size = int(r.headers.get('content-length', 0))
                 with open("model.h5", 'wb') as file:
