@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainrgCZLM.ui'
+## Form generated from reading UI file 'main.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.1
+## Created by: Qt User Interface Compiler version 6.5.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -30,7 +30,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(734, 413)
         MainWindow.setMinimumSize(QSize(734, 413))
         icon = QIcon()
-        icon.addFile(u":/images/ssg+.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/images/railguard.ico", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.styleSheet = QWidget(MainWindow)
         self.styleSheet.setObjectName(u"styleSheet")
@@ -102,24 +102,23 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-"Bg App */\n"
+"*/\n"
 "#bgApp {\n"
-"	background-color: rgb(239, 239, 239);\n"
-"	border: 1px solid rgb(239, 239, 239);\n"
+"	background-color: rgb(0, 9, 31);\n"
 "	border-top-left-radius: 8px;\n"
 "	border-top-right-radius: 8px;\n"
 "	border-bottom-left-radius: 8px;\n"
 "	border-bottom-right-radius: 8px;\n"
 "}\n"
 "\n"
-"/* ////////////////////////////////////////////////////////////////"
-                        "/////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Left Menu */\n"
-"#leftMenuBg {\n"
-"	background-color: rgb(184, 184, 184);\n"
+""
+                        "#leftMenuBg {\n"
+"	background-color: rgb(0, 16, 30);\n"
 "}\n"
-"#titleLeftApp { font: 81 12pt \"Inter Medium\"; }\n"
-"#titleLeftDescription { font: 8pt \"Inter Medium\"; color: #db63ff; }\n"
+"#titleLeftApp { font: 400 12pt \"Inter Medium\"; }\n"
+"#titleLeftDescription { font: 400 8pt \"Inter Medium\"; color: rgb(98, 114, 164); }\n"
 "\n"
 "#topMenu .QPushButton {\n"
 "	background-position: left center;\n"
@@ -139,17 +138,18 @@ class Ui_MainWindow(object):
 "	background-color:transparent;\n"
 "	text-align: left;\n"
 "	padding-left: 44px;\n"
+"	color: #aa84f0;\n"
 "}\n"
 "#bottomMenu .QPushButton:hover {\n"
-"	background-color: rgb(35,35,38);\n"
+"	background-color: rgb(199, 152, 240);\n"
 "}\n"
 "#bottomMenu .QPushButton:pressed {\n"
-"	background-color: #aa63ff;\n"
+"	background-color: rgb(182, 170, 240);\n"
 "	color: #fff;\n"
 "}\n"
 "#leftMenuFrame{\n"
-"	border-top: solid qlineargradient(spread:pad, x1:1, y1"
-                        ":0.477, x2:0, y2:0.494, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"	border-top: solid qlineargradient(spread:pad, x1:1, y1:0.477,"
+                        " x2:0, y2:0.494, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "}\n"
 "\n"
 "/* Toggle Button */\n"
@@ -158,13 +158,15 @@ class Ui_MainWindow(object):
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 22px solid transparent;\n"
-"	background-color: #23242a;\n"
+"	background-color: #aa84f0;\n"
 "	text-align: left;\n"
 "	padding-left: 44px;\n"
-"	color: rgb(113, 126, 149);\n"
 "}\n"
 "#toggleButton:pressed { \n"
-"	background-color: rgb(50, 50, 50);\n"
+"	background-color: rgb(182, 170, 240);\n"
+"}\n"
+"#toggleButton:hover {\n"
+"	background-color: rgb(199, 152, 240);\n"
 "}\n"
 "\n"
 "/* Title Menu */\n"
@@ -174,10 +176,10 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Extra Tab */\n"
 "#extraLeftBox {\n"
-"	background-color: rgb(184, 184, 184);\n"
+"	background-color: rgb(0, 16, 30);\n"
 "}\n"
 "#extraTopBg {\n"
-"	background-color: rgb(184, 184, 184);\n"
+"	background-color: rgb(0, 16, 30);\n"
 "}\n"
 "\n"
 "/* Icon */\n"
@@ -187,14 +189,14 @@ class Ui_MainWindow(object):
 "	background-image: url(:/icons/images/icons/settings.png);\n"
 "}\n"
 "\n"
-"/* Label */\n"
-"#extraLabel"
-                        " { color: #db63ff; }\n"
+""
+                        "/* Label */\n"
+"#extraLabel { color: #00091F; }\n"
 "\n"
 "/* Btn Close */\n"
-"#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#extraCloseColumnBtn:hover { background-color: rgb(35,35,38); border-style: solid; border-radius: 4px; }\n"
-"#extraCloseColumnBtn:pressed { background-color: #db63ff; border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn { background-color: #aa84f0; border: none;  border-radius: 5px; }\n"
+"#extraCloseColumnBtn:hover { background-color: rgb(199, 152, 240); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: rgb(182, 170, 240); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "#extraContent{\n"
@@ -212,37 +214,37 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#extraTopMenu .QPushButton:hover {\n"
-"	background-color: rgb(35,35,38);\n"
+"	background-color: rgb(199, 152, 240);\n"
 "}\n"
 "#extraTopMenu .QPushButton:pressed {\n"
-"	background-color: #db63ff;\n"
-"	"
-                        "color: #fff;\n"
+""
+                        "	background-color: rgb(182, 170, 240);\n"
+"	color: #fff;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Content App */\n"
 "#contentTopBg{\n"
-"	background-color: rgb(184, 184, 184);\n"
+"	background-color: rgb(0, 16, 30);\n"
 "}\n"
 "#contentBottom{\n"
 "	border-top: 3px solid qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "}\n"
 "\n"
 "/* Top Buttons */\n"
-"#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }\n"
-"#rightButtons .QPushButton:pressed { background-color: #db63ff; border-style: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton { background-color: #aa84f0 border: none;  border-radius: 5px; }\n"
+"#rightButtons .QPushButton:hover { background-color: rgb(199, 152, 240); border-style: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton:pressed { background-color: rgb(182, 170, 240); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
-"#extraRightBox { background-color: rgb(239, 239, 239); }\n"
-"#themeSettingsTopDetail { background-color: #db63ff; }\n"
+"#extraRightBox { background-color: rgb(0,12,32); }\n"
+"#themeSettingsTopDetail { background-color: rgb(0,12,32); }\n"
 "\n"
 "/* Bottom Bar */\n"
 "#bottomBar { \n"
-"background-color: rgb(184, 184, 184); }\n"
-"#bottomBar QLabel "
-                        "{ font-size: 11px; padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
+"background-color: rgb(0, "
+                        "16, 30); }\n"
+"#bottomBar QLabel { font-size: 11px; padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
 "\n"
 "/* CONTENT SETTINGS */\n"
 "/* MENUS */\n"
@@ -256,10 +258,10 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#contentSettings .QPushButton:hover {\n"
-"	background-color: rgb(35,35,38);\n"
+"	background-color: rgb(199, 152, 240);\n"
 "}\n"
 "#contentSettings .QPushButton:pressed {\n"
-"	background-color: #db63ff;\n"
+"	background-color: rgb(182, 170, 240);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
@@ -270,10 +272,10 @@ class Ui_MainWindow(object):
 "	padding: 10px;\n"
 "	border-radius: 5px;\n"
 "	gridline-color: rgb(35,35,38);\n"
-"	border-bottom: 1px solid qlineargradient(spread:pad, x1:1, y1:0.477, x2:0, y2:0.494, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"	border-bottom: 1px solid qlineargradient(spread:pad, x1:1, y1:0.477, x2:0, y2:0.494, stop:0 rgba(254, 121, 199,"
+                        " 255), stop:1 rgba(170, 85, 255, 255));\n"
 "}\n"
-""
-                        "QTableWidget::item{\n"
+"QTableWidget::item{\n"
 "	border-color: qlineargradient(spread:pad, x1:1, y1:0.477, x2:0, y2:0.494, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "	padding-left: 5px;\n"
 "	padding-right: 5px;\n"
@@ -291,10 +293,10 @@ class Ui_MainWindow(object):
 "    border-right: 1px solid qlineargradient(spread:pad, x1:1, y1:0.477, x2:0, y2:0.494, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "}\n"
 "QTableWidget::horizontalHeader {\n"
-"	background-color: rgb(35,35,38);\n"
+"	background-color: rgb(3"
+                        "5,35,38);\n"
 "}\n"
-"QHeaderView::section:horizonta"
-                        "l\n"
+"QHeaderView::section:horizontal\n"
 "{\n"
 "    border: 1px solid qlineargradient(spread:pad, x1:1, y1:0.477, x2:0, y2:0.494, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "	background-color: rgb(35,35,38);\n"
@@ -310,25 +312,25 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "LineEdit */\n"
 "QLineEdit {\n"
-"	background-color: rgb(35,35,38);\n"
+"	background-color: rgb(0, 9, 31);\n"
 "	border-radius: 5px;\n"
 "	border: 2px solid qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "	padding-left: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
 "	selection-background-color: #db63ff;\n"
 "}\n"
-"QLineEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88)"
-                        ";\n"
+"QLineE"
+                        "dit:hover {\n"
+"	border: 2px solid #aa84f0;\n"
 "}\n"
 "QLineEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
+"	border: 2px solid #aa84f0;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "PlainTextEdit */\n"
 "QPlainTextEdit {\n"
-"	background-color: rgb(27, 29, 35);\n"
+"	background-color: rgb(0, 9, 31);\n"
 "	border-radius: 5px;\n"
 "	padding: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
@@ -341,30 +343,30 @@ class Ui_MainWindow(object):
 "    height: 8px;\n"
 " }\n"
 "QPlainTextEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
+"	border: 2px solid #aa84f0;\n"
 "}\n"
 "QPlainTextEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
+"	border: 2px solid #aa84f0;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "ScrollBars */\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(0, 9, 31);\n"
 "    height: 8px;\n"
 "    margin: 0px 21px 0 21px;\n"
 "	border-radius: 0px;\n"
 "}\n"
-"QScrollBar::handle:ho"
-                        "rizontal {\n"
-"    background: #db63ff;\n"
+"QScrollBar:"
+                        ":handle:horizontal {\n"
+"    background: #aa84f0;\n"
 "    min-width: 25px;\n"
 "	border-radius: 4px;\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
+"    background: #aa84f0;\n"
 "    width: 20px;\n"
 "	border-top-right-radius: 4px;\n"
 "    border-bottom-right-radius: 4px;\n"
@@ -373,7 +375,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
+"    background: #aa84f0;\n"
 "    width: 20px;\n"
 "	border-top-left-radius: 4px;\n"
 "    border-bottom-left-radius: 4px;\n"
@@ -390,20 +392,20 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: #aa84f0;\n"
 "    width: 8px;\n"
 "    margin: 21px 0 21px 0;\n"
 "	border-radius: 0px;\n"
 " }\n"
-" Q"
-                        "ScrollBar::handle:vertical {\n"
-"	background: #db63ff;\n"
+" QScrollBar::han"
+                        "dle:vertical {\n"
+"	background: #aa84f0;\n"
 "    min-height: 25px;\n"
 "	border-radius: 4px;\n"
 " }\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
+"    background: #aa84f0;\n"
 "     height: 20px;\n"
 "	border-bottom-left-radius: 4px;\n"
 "    border-bottom-right-radius: 4px;\n"
@@ -412,7 +414,7 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
+"    background: #aa84f0;\n"
 "     height: 20px;\n"
 "	border-top-left-radius: 4px;\n"
 "    border-top-right-radius: 4px;\n"
@@ -430,18 +432,18 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CheckBox */\n"
 "QCheckBox::indicator {\n"
-""
-                        "    border: 3px solid rgb(52, 59, 72);\n"
+"    border: 3px solid #aa84f0"
+                        ";\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "	border-radius: 10px;\n"
-"    background: rgb(44, 49, 60);\n"
+"    background: #fff\n"
 "}\n"
 "QCheckBox::indicator:hover {\n"
-"    border: 3px solid rgb(58, 66, 81);\n"
+"    border: 3px solid rgb(143, 143, 143);\n"
 "}\n"
 "QCheckBox::indicator:checked {\n"
-"    background: 3px solid rgb(52, 59, 72);\n"
+"    background: 3px solid #aa84f0;\n"
 "	border: 3px solid qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "	background-image: url(:/icons/images/icons/cil-check-alt.png);\n"
 "}\n"
@@ -460,8 +462,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QRadioButton::indicator:checked {\n"
 "    background: 3px solid rgb(94, 106, 130);\n"
-"	borde"
-                        "r: 3px solid qlineargradient(spread:pad, x1:1, y1:0.477, x2:0, y2:0.494, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"	border: 3px solid qlineargradient(spread:pad, x1:1, y1:0.47"
+                        "7, x2:0, y2:0.494, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -485,8 +487,8 @@ class Ui_MainWindow(object):
 "	border-left-style: solid;\n"
 "	border-top-right-radius: 3px;\n"
 "	border-bottom-right-radius: 3px;\n"
-"	backg"
-                        "round-image: url(:/icons/images/icons/arrow-down_hover.png);\n"
+"	background-image: url(:/icons/images/icons/arrow-down_hover"
+                        ".png);\n"
 "	background-position: center;\n"
 "	background-repeat: no-repeat;\n"
 " }\n"
@@ -523,10 +525,10 @@ class Ui_MainWindow(object):
 "    background-color: #db63ff;\n"
 "}\n"
 "\n"
-"QSlide"
-                        "r::groove:vertical {\n"
+"QSlider::groove:vertical {\n"
 "    border-radius: 5px;\n"
-"    width: 10px;\n"
+" "
+                        "   width: 10px;\n"
 "    margin: 0px;\n"
 "	background-color: rgb(52, 59, 72);\n"
 "}\n"
@@ -564,8 +566,8 @@ class Ui_MainWindow(object):
 "	background-color: rgb(52, 58, 71);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////"
-                        "////////////////////////////////////////////////////////////////////\n"
+"/* ///////////////////////////////////////////////////////////////////////////////////"
+                        "//////////////\n"
 "Button */\n"
 "#pagesContainer QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
@@ -633,12 +635,13 @@ class Ui_MainWindow(object):
         self.topLogo.setStyleSheet(u"")
         self.topLogo.setFrameShape(QFrame.NoFrame)
         self.topLogo.setFrameShadow(QFrame.Raised)
-        self.ssglabel = QLabel(self.topLogo)
-        self.ssglabel.setObjectName(u"ssglabel")
-        self.ssglabel.setGeometry(QRect(0, 5, 41, 21))
-        self.ssglabel.setStyleSheet(u"")
-        self.ssglabel.setPixmap(QPixmap(u":/images/ssg+.png"))
-        self.ssglabel.setScaledContents(True)
+        self.railguard = QLabel(self.topLogo)
+        self.railguard.setObjectName(u"Railguard")
+        self.railguard.setGeometry(QRect(0, 5, 41, 21))
+        self.railguard.setStyleSheet(u"")
+        self.railguard.setPixmap(QPixmap(u":/images/railguard.ico"))
+        self.railguard.setScaledContents(False)
+        self.railguard.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.titleLeftApp = QLabel(self.topLogoInfo_2)
         self.titleLeftApp.setObjectName(u"titleLeftApp")
         self.titleLeftApp.setGeometry(QRect(70, 8, 160, 20))
@@ -668,15 +671,15 @@ class Ui_MainWindow(object):
         self.toggleBox.setObjectName(u"toggleBox")
         self.toggleBox.setMaximumSize(QSize(16777215, 45))
         self.toggleBox.setStyleSheet(u"#toggleButton {\n"
-"	background-color: rgb(184, 184, 184);\n"
+"	background-color: rgb(0, 16, 30);\n"
 "	background-image: url(:/icons/images/icons/menu_unhover.png);\n"
 "}\n"
 "#toggleButton::hover {\n"
-"	background-color: rgb(184, 184, 184);\n"
+"	background-color: #7e7e7e;\n"
 "	background-image: url(:/icons/images/icons/menu_hover.png);\n"
 "}\n"
 "#toggleButton::pressed {\n"
-"	background-color: rgb(50, 50, 50);\n"
+"	background-color: #aa84f0;\n"
 "	background-image: url(:/icons/images/icons/menu_hover.png);\n"
 "}")
         self.toggleBox.setFrameShape(QFrame.NoFrame)
@@ -716,7 +719,17 @@ class Ui_MainWindow(object):
 "	background-color: rgb(50, 50, 50);\n"
 "	background-image: url(:/icons/images/icons/home_hover.png);\n"
 "}\n"
-"")
+"\n"
+"#btn_dashboard {\n"
+"	background-image: url(:/icons/images/icons/layout_unhover.png);\n"
+"}\n"
+"#btn_dashboard::hover {\n"
+"	background-image: url(:/icons/images/icons/layout_hover.png);\n"
+"}\n"
+"#btn_dashboard::pressed {\n"
+"	background-color: rgb(50, 50, 50);\n"
+"	background-image: url(:/icons/images/icons/layout_hover.png);\n"
+"}")
         self.topMenu.setFrameShape(QFrame.NoFrame)
         self.topMenu.setFrameShadow(QFrame.Raised)
         self.verticalLayout_8 = QVBoxLayout(self.topMenu)
@@ -737,16 +750,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_home)
 
-        self.btn_page2 = QPushButton(self.topMenu)
-        self.btn_page2.setObjectName(u"btn_page2")
-        sizePolicy.setHeightForWidth(self.btn_page2.sizePolicy().hasHeightForWidth())
-        self.btn_page2.setSizePolicy(sizePolicy)
-        self.btn_page2.setMinimumSize(QSize(0, 45))
-        self.btn_page2.setFont(font)
-        self.btn_page2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_page2.setLayoutDirection(Qt.LeftToRight)
+        self.btn_dashboard = QPushButton(self.topMenu)
+        self.btn_dashboard.setObjectName(u"btn_dashboard")
+        sizePolicy.setHeightForWidth(self.btn_dashboard.sizePolicy().hasHeightForWidth())
+        self.btn_dashboard.setSizePolicy(sizePolicy)
+        self.btn_dashboard.setMinimumSize(QSize(0, 45))
+        self.btn_dashboard.setFont(font)
+        self.btn_dashboard.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_dashboard.setLayoutDirection(Qt.LeftToRight)
 
-        self.verticalLayout_8.addWidget(self.btn_page2)
+        self.verticalLayout_8.addWidget(self.btn_dashboard)
 
         self.btn_page3 = QPushButton(self.topMenu)
         self.btn_page3.setObjectName(u"btn_page3")
@@ -787,15 +800,15 @@ class Ui_MainWindow(object):
         self.bottomMenu = QFrame(self.leftMenuFrame)
         self.bottomMenu.setObjectName(u"bottomMenu")
         self.bottomMenu.setStyleSheet(u"#toggleLeftBox {\n"
-"	background-color: rgb(184, 184, 184);\n"
+"	background-color: rgb(0, 16, 30);\n"
 "	background-image: url(:/icons/images/icons/chevrons-right_unhover.png);\n"
 "}\n"
 "#toggleLeftBox::hover {\n"
-"	background-color: rgb(184, 184, 184);\n"
+"	background-color: #7e7e7e;\n"
 "	background-image: url(:/icons/images/icons/chevrons-right_hover.png);\n"
 "}\n"
 "#toggleLeftBox::pressed {\n"
-"	background-color: rgb(50, 50, 50);\n"
+"	background-color: #aa84f0;\n"
 "	background-image: url(:/icons/images/icons/chevrons-right_hover.png);\n"
 "}\n"
 "")
@@ -983,7 +996,7 @@ class Ui_MainWindow(object):
         self.contentTopBg.setObjectName(u"contentTopBg")
         self.contentTopBg.setMinimumSize(QSize(659, 50))
         self.contentTopBg.setMaximumSize(QSize(16777215, 50))
-        self.contentTopBg.setStyleSheet(u"")
+        self.contentTopBg.setStyleSheet(u"background-color: rgb(0, 16, 30);")
         self.contentTopBg.setFrameShape(QFrame.NoFrame)
         self.contentTopBg.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.contentTopBg)
@@ -1032,21 +1045,21 @@ class Ui_MainWindow(object):
         self.rightButtons.setObjectName(u"rightButtons")
         self.rightButtons.setMinimumSize(QSize(127, 50))
         self.rightButtons.setStyleSheet(u"#closeAppBtn {\n"
-"background-color: rgb(150, 150, 150);\n"
+"background-color: rgb(65, 65, 65);\n"
 "border-top-left-radius: 8px;\n"
 "border-top-right-radius: 8px;\n"
 "border-bottom-left-radius: 8px;\n"
 "border-bottom-right-radius: 8px;\n"
 "}\n"
 "#closeAppBtn::hover {\n"
-"background-color: rgb(101, 101, 101);\n"
+"background-color: rgb(126, 126, 126);\n"
 "border-top-left-radius: 8px;\n"
 "border-top-right-radius: 8px;\n"
 "border-bottom-left-radius: 8px;\n"
 "border-bottom-right-radius: 8px;\n"
 "}\n"
 "#closeAppBtn::pressed {\n"
-"background-color: rgb(50, 50, 50);\n"
+"background-color: #aa84f0;\n"
 "border-top-left-radius: 8px;\n"
 "border-top-right-radius: 8px;\n"
 "border-bottom-left-radius: 8px;\n"
@@ -1054,22 +1067,22 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#maximizeRestoreAppBtn {\n"
-"background-color: rgb(150, 150, 150);\n"
+"background-color: rgb(65, 65, 65);\n"
 "border-top-left-radius: 8px;\n"
 "border-top-right-radius: 8px;\n"
 "border-bottom-left-radius: 8px;\n"
 "border-bottom-right-radius: 8px;\n"
 "}\n"
 "#maximizeRestoreAppBtn::hover {\n"
-"background-color: rgb(150, 150, 150);\n"
+"background-color: rgb(126, 126, 126);\n"
 "border-top-left-radius: 8px;\n"
 "border-top-right-radius: 8px;\n"
-"border-bottom-left-radiu"
-                        "s: 8px;\n"
-"border-bottom-right-radius: 8px;\n"
+"border-bottom-left-radius: 8px;\n"
+"bo"
+                        "rder-bottom-right-radius: 8px;\n"
 "}\n"
 "#maximizeRestoreAppBtn::pressed {\n"
-"background-color: rgb(50, 50, 50);\n"
+"background-color: #aa84f0;\n"
 "border-top-left-radius: 8px;\n"
 "border-top-right-radius: 8px;\n"
 "border-bottom-left-radius: 8px;\n"
@@ -1077,49 +1090,27 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#minimizeAppBtn {\n"
-"background-color: rgb(150, 150, 150);\n"
+"background-color: rgb(65, 65, 65);\n"
 "border-top-left-radius: 8px;\n"
 "border-top-right-radius: 8px;\n"
 "border-bottom-left-radius: 8px;\n"
 "border-bottom-right-radius: 8px;\n"
 "}\n"
 "#minimizeAppBtn::hover {\n"
-"background-color: rgb(101, 101, 101);\n"
+"background-color: rgb(126, 126, 126);\n"
 "border-top-left-radius: 8px;\n"
 "border-top-right-radius: 8px;\n"
 "border-bottom-left-radius: 8px;\n"
 "border-bottom-right-radius: 8px;\n"
 "}\n"
 "#minimizeAppBtn::pressed {\n"
-"background-color: rgb(50, 50, 50);\n"
+"background-color: #aa84f0;\n"
 "border-top-left-radius: 8px;\n"
 "border-top-right-radius: 8px;\n"
 "border-bottom-left-radius: 8px;\n"
 "border-bottom-right-radius: 8px;\n"
 "}\n"
-"\n"
-"#settingsTopBtn {\n"
-"background-color: rgb(150, 150, 150);\n"
-"border-top-left-radius: 8px;\n"
-""
-                        "border-top-right-radius: 8px;\n"
-"border-bottom-left-radius: 8px;\n"
-"border-bottom-right-radius: 8px;\n"
-"}\n"
-"#settingsTopBtn::hover {\n"
-"background-color: rgb(101, 101, 101);\n"
-"border-top-left-radius: 8px;\n"
-"border-top-right-radius: 8px;\n"
-"border-bottom-left-radius: 8px;\n"
-"border-bottom-right-radius: 8px;\n"
-"}\n"
-"#settingsTopBtn::pressed {\n"
-"background-color: rgb(50, 50, 50);\n"
-"border-top-left-radius: 8px;\n"
-"border-top-right-radius: 8px;\n"
-"border-bottom-left-radius: 8px;\n"
-"border-bottom-right-radius: 8px;\n"
-"}")
+"")
         self.rightButtons.setFrameShape(QFrame.NoFrame)
         self.rightButtons.setFrameShadow(QFrame.Raised)
         self.minimizeAppBtn = QPushButton(self.rightButtons)
@@ -1230,423 +1221,143 @@ class Ui_MainWindow(object):
 "background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "font: 300 10pt \"Inter Light\";\n"
 "}")
-        self.dashboardTitle = QLabel(self.home)
-        self.dashboardTitle.setObjectName(u"dashboardTitle")
-        self.dashboardTitle.setGeometry(QRect(0, 0, 631, 31))
-        self.dashboardTitle.setStyleSheet(u"color: rgb(254, 121, 199);\n"
-"font: 800 20pt \"Inter\";")
-        self.dashboardTitle.setLineWidth(1)
-        self.dashboardTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.selectMap = QPushButton(self.home)
-        self.selectMap.setObjectName(u"selectMap")
-        self.selectMap.setGeometry(QRect(31, 113, 150, 30))
-        self.selectMap.setMinimumSize(QSize(150, 30))
+        self.modeltitle = QLabel(self.home)
+        self.modeltitle.setObjectName(u"modeltitle")
+        self.modeltitle.setGeometry(QRect(0, 10, 71, 21))
         font5 = QFont()
-        font5.setFamilies([u"Inter Light"])
-        font5.setPointSize(10)
-        font5.setBold(False)
+        font5.setFamilies([u"Inter"])
+        font5.setPointSize(14)
+        font5.setBold(True)
         font5.setItalic(False)
-        self.selectMap.setFont(font5)
-        self.selectMap.setCursor(QCursor(Qt.PointingHandCursor))
-        self.selectMap.setStyleSheet(u"#selectMap {\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"font: 300 10pt \"Inter Light\";\n"
-"}\n"
-"#selectMap::pressed {\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 180), stop:1 rgba(170, 85, 255, 180));\n"
-"font: 300 10pt \"Inter Light\";\n"
-"}")
-        self.selectMap.setFlat(False)
-        self.labelFrame = QFrame(self.home)
-        self.labelFrame.setObjectName(u"labelFrame")
-        self.labelFrame.setGeometry(QRect(0, 40, 181, 61))
-        self.labelFrame.setStyleSheet(u"#labelFrame {\n"
-"border: 2px solid qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"border-top-left-radius: 8px;\n"
-"border-top-right-radius: 8px;\n"
-"border-bottom-left-radius: 8px;\n"
-"border-bottom-right-radius: 8px;\n"
-"background-color: rgb(245, 245, 245);\n"
-"}")
-        self.labelFrame.setFrameShape(QFrame.StyledPanel)
-        self.labelFrame.setFrameShadow(QFrame.Raised)
-        self.statusTitle = QLabel(self.labelFrame)
-        self.statusTitle.setObjectName(u"statusTitle")
-        self.statusTitle.setGeometry(QRect(10, 10, 61, 16))
-        self.statusTitle.setStyleSheet(u"color: rgb(254, 121, 199);\n"
-"font: 800 20pt \"Inter Extra Bold\";")
-        self.statusTitle.setLineWidth(1)
-        self.statusTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.status = QLabel(self.labelFrame)
-        self.status.setObjectName(u"status")
-        self.status.setGeometry(QRect(70, 10, 61, 16))
-        self.status.setStyleSheet(u"color: #ff0000;")
-        self.status.setLineWidth(1)
-        self.status.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.versionTitle = QLabel(self.labelFrame)
-        self.versionTitle.setObjectName(u"versionTitle")
-        self.versionTitle.setGeometry(QRect(10, 30, 101, 20))
-        self.versionTitle.setStyleSheet(u"color: rgb(254, 121, 199);\n"
-"font: 800 20pt \"Inter Extra Bold\";")
-        self.versionTitle.setLineWidth(1)
-        self.versionTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.modelVersion = QLabel(self.labelFrame)
+        self.modeltitle.setFont(font5)
+        self.modeltitle.setStyleSheet(u"color: #aa84f0;\n"
+"background-color: transparent;\n"
+"font: 600 14pt \"Inter\";\n"
+"")
+        self.modeltitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.modelVersion = QLabel(self.home)
         self.modelVersion.setObjectName(u"modelVersion")
-        self.modelVersion.setGeometry(QRect(110, 30, 61, 16))
-        self.modelVersion.setStyleSheet(u"color: rgb(170, 85, 255);")
-        self.modelVersion.setLineWidth(1)
-        self.modelVersion.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.labelFrame_2 = QFrame(self.labelFrame)
-        self.labelFrame_2.setObjectName(u"labelFrame_2")
-        self.labelFrame_2.setGeometry(QRect(120, 60, 181, 61))
-        self.labelFrame_2.setStyleSheet(u"#labelFrame {\n"
-"border: 2px solid qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"border-top-left-radius: 8px;\n"
-"border-top-right-radius: 8px;\n"
-"border-bottom-left-radius: 8px;\n"
-"border-bottom-right-radius: 8px;\n"
-"}")
-        self.labelFrame_2.setFrameShape(QFrame.StyledPanel)
-        self.labelFrame_2.setFrameShadow(QFrame.Raised)
-        self.statusTitle_2 = QLabel(self.labelFrame_2)
-        self.statusTitle_2.setObjectName(u"statusTitle_2")
-        self.statusTitle_2.setGeometry(QRect(10, 10, 61, 16))
-        self.statusTitle_2.setStyleSheet(u"color: rgb(254, 121, 199);\n"
-"font: 800 20pt \"Inter Extra Bold\";")
-        self.statusTitle_2.setLineWidth(1)
-        self.statusTitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.status_2 = QLabel(self.labelFrame_2)
-        self.status_2.setObjectName(u"status_2")
-        self.status_2.setGeometry(QRect(70, 10, 61, 16))
-        self.status_2.setStyleSheet(u"")
-        self.status_2.setLineWidth(1)
-        self.status_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.versionTitle_2 = QLabel(self.labelFrame_2)
-        self.versionTitle_2.setObjectName(u"versionTitle_2")
-        self.versionTitle_2.setGeometry(QRect(10, 30, 101, 20))
-        self.versionTitle_2.setStyleSheet(u"color: rgb(254, 121, 199);\n"
-"font: 800 20pt \"Inter Extra Bold\";")
-        self.versionTitle_2.setLineWidth(1)
-        self.versionTitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.modelVersion_2 = QLabel(self.labelFrame_2)
-        self.modelVersion_2.setObjectName(u"modelVersion_2")
-        self.modelVersion_2.setGeometry(QRect(110, 30, 61, 16))
-        self.modelVersion_2.setStyleSheet(u"color: rgb(170, 85, 255);")
-        self.modelVersion_2.setLineWidth(1)
-        self.modelVersion_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.line = QFrame(self.home)
-        self.line.setObjectName(u"line")
-        self.line.setGeometry(QRect(0, 100, 16, 31))
-        self.line.setStyleSheet(u"color: rgb(170, 99, 255);")
-        self.line.setFrameShadow(QFrame.Plain)
-        self.line.setLineWidth(5)
-        self.line.setFrameShape(QFrame.VLine)
-        self.line_9 = QFrame(self.home)
-        self.line_9.setObjectName(u"line_9")
-        self.line_9.setGeometry(QRect(0, 240, 16, 21))
-        self.line_9.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_9.setFrameShadow(QFrame.Plain)
-        self.line_9.setLineWidth(5)
-        self.line_9.setFrameShape(QFrame.VLine)
-        self.line_4 = QFrame(self.home)
-        self.line_4.setObjectName(u"line_4")
-        self.line_4.setGeometry(QRect(10, 160, 21, 16))
-        self.line_4.setStyleSheet(u"color: rgb(170, 99, 255);")
-        self.line_4.setFrameShadow(QFrame.Plain)
-        self.line_4.setLineWidth(5)
-        self.line_4.setFrameShape(QFrame.HLine)
-        self.line_5 = QFrame(self.home)
-        self.line_5.setObjectName(u"line_5")
-        self.line_5.setGeometry(QRect(0, 200, 16, 41))
-        self.line_5.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_5.setFrameShadow(QFrame.Plain)
-        self.line_5.setLineWidth(5)
-        self.line_5.setFrameShape(QFrame.VLine)
-        self.line_2 = QFrame(self.home)
-        self.line_2.setObjectName(u"line_2")
-        self.line_2.setGeometry(QRect(10, 120, 21, 16))
-        self.line_2.setStyleSheet(u"color: rgb(170, 99, 255);")
-        self.line_2.setFrameShadow(QFrame.Plain)
-        self.line_2.setLineWidth(5)
-        self.line_2.setFrameShape(QFrame.HLine)
-        self.line_10 = QFrame(self.home)
-        self.line_10.setObjectName(u"line_10")
-        self.line_10.setGeometry(QRect(10, 250, 21, 16))
-        self.line_10.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_10.setFrameShadow(QFrame.Plain)
-        self.line_10.setLineWidth(5)
-        self.line_10.setFrameShape(QFrame.HLine)
-        self.line_3 = QFrame(self.home)
-        self.line_3.setObjectName(u"line_3")
-        self.line_3.setGeometry(QRect(0, 130, 16, 41))
-        self.line_3.setStyleSheet(u"color: rgb(170, 99, 255);")
-        self.line_3.setFrameShadow(QFrame.Plain)
-        self.line_3.setLineWidth(5)
-        self.line_3.setFrameShape(QFrame.VLine)
-        self.line_7 = QFrame(self.home)
-        self.line_7.setObjectName(u"line_7")
-        self.line_7.setGeometry(QRect(0, 171, 16, 30))
-        self.line_7.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_7.setFrameShadow(QFrame.Plain)
-        self.line_7.setLineWidth(5)
-        self.line_7.setFrameShape(QFrame.VLine)
-        self.line_6 = QFrame(self.home)
-        self.line_6.setObjectName(u"line_6")
-        self.line_6.setGeometry(QRect(10, 210, 21, 16))
-        self.line_6.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_6.setFrameShadow(QFrame.Plain)
-        self.line_6.setLineWidth(5)
-        self.line_6.setFrameShape(QFrame.HLine)
-        self.predict = QPushButton(self.home)
-        self.predict.setObjectName(u"predict")
-        self.predict.setGeometry(QRect(30, 153, 150, 30))
-        self.predict.setMinimumSize(QSize(150, 30))
-        self.predict.setFont(font5)
-        self.predict.setCursor(QCursor(Qt.PointingHandCursor))
-        self.predict.setStyleSheet(u"#predict {\n"
-"background-color: rgb(184, 184, 184);\n"
-"font: 300 10pt \"Inter Light\";\n"
-"}")
-        self.predict.setFlat(False)
-        self.mapSelected = QLabel(self.home)
-        self.mapSelected.setObjectName(u"mapSelected")
-        self.mapSelected.setGeometry(QRect(30, 208, 151, 21))
-        self.mapSelected.setStyleSheet(u"color: #ff0000;\n"
+        self.modelVersion.setGeometry(QRect(80, 10, 91, 21))
+        font6 = QFont()
+        font6.setFamilies([u"Inter"])
+        font6.setPointSize(10)
+        font6.setBold(True)
+        font6.setItalic(False)
+        self.modelVersion.setFont(font6)
+        self.modelVersion.setStyleSheet(u"color: #fff;\n"
+"background-color: transparent;\n"
+"font: 650 10pt \"Inter\";\n"
 "")
-        self.mapSelected.setLineWidth(1)
-        self.mapSelected.setAlignment(Qt.AlignCenter)
-        self.predictionOutput = QLabel(self.home)
-        self.predictionOutput.setObjectName(u"predictionOutput")
-        self.predictionOutput.setGeometry(QRect(30, 248, 151, 21))
-        self.predictionOutput.setStyleSheet(u"color: #ff0000;")
-        self.predictionOutput.setLineWidth(1)
-        self.predictionOutput.setAlignment(Qt.AlignCenter)
-        self.predictionstdout = QPlainTextEdit(self.home)
-        self.predictionstdout.setObjectName(u"predictionstdout")
-        self.predictionstdout.setGeometry(QRect(200, 120, 231, 151))
-        self.predictionstdout.setMinimumSize(QSize(100, 100))
-        self.predictionstdout.setStyleSheet(u"border: 2px solid qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"border-top-left-radius: 8px;\n"
-"border-top-right-radius: 8px;\n"
-"border-bottom-left-radius: 8px;\n"
-"border-bottom-right-radius: 8px;\n"
-"background-color: rgb(70, 70, 70);\n"
-"color: #fff;")
-        self.predictionstdout.setReadOnly(True)
-        self.predictionOutputTitle = QLabel(self.home)
-        self.predictionOutputTitle.setObjectName(u"predictionOutputTitle")
-        self.predictionOutputTitle.setGeometry(QRect(200, 100, 121, 20))
-        self.predictionOutputTitle.setStyleSheet(u"color: rgb(254, 121, 199);\n"
-"font: 800 20pt \"Inter Extra Bold\";")
-        self.predictionOutputTitle.setLineWidth(1)
-        self.predictionOutputTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.labelFrame_3 = QFrame(self.home)
-        self.labelFrame_3.setObjectName(u"labelFrame_3")
-        self.labelFrame_3.setGeometry(QRect(450, 40, 181, 61))
-        self.labelFrame_3.setStyleSheet(u"#labelFrame_3{\n"
-"border: 2px solid qlineargradient(spread:pad, x1:1, y1:0.477, x2:0, y2:0.494, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"border-top-left-radius: 8px;\n"
-"border-top-right-radius: 8px;\n"
-"border-bottom-left-radius: 8px;\n"
-"border-bottom-right-radius: 8px;\n"
-"background-color: rgb(245, 245, 245);\n"
-"}")
-        self.labelFrame_3.setFrameShape(QFrame.StyledPanel)
-        self.labelFrame_3.setFrameShadow(QFrame.Raised)
-        self.statusTitle_3 = QLabel(self.labelFrame_3)
-        self.statusTitle_3.setObjectName(u"statusTitle_3")
-        self.statusTitle_3.setGeometry(QRect(10, 10, 161, 16))
-        self.statusTitle_3.setStyleSheet(u"color: rgb(170, 85, 255);\n"
-"font: 800 20pt \"Inter Extra Bold\";")
-        self.statusTitle_3.setLineWidth(1)
-        self.statusTitle_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.versionTitle_3 = QLabel(self.labelFrame_3)
-        self.versionTitle_3.setObjectName(u"versionTitle_3")
-        self.versionTitle_3.setGeometry(QRect(10, 30, 101, 20))
-        self.versionTitle_3.setStyleSheet(u"color: rgb(170, 85, 255);\n"
-"font: 800 20pt \"Inter Extra Bold\";")
-        self.versionTitle_3.setLineWidth(1)
-        self.versionTitle_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.tensorflowVersion = QLabel(self.labelFrame_3)
-        self.tensorflowVersion.setObjectName(u"tensorflowVersion")
-        self.tensorflowVersion.setGeometry(QRect(110, 30, 61, 16))
-        self.tensorflowVersion.setStyleSheet(u"color: rgb(170, 85, 255);")
-        self.tensorflowVersion.setLineWidth(1)
-        self.tensorflowVersion.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.labelFrame_4 = QFrame(self.labelFrame_3)
-        self.labelFrame_4.setObjectName(u"labelFrame_4")
-        self.labelFrame_4.setGeometry(QRect(120, 60, 181, 61))
-        self.labelFrame_4.setStyleSheet(u"#labelFrame {\n"
-"border: 2px solid qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"border-top-left-radius: 8px;\n"
-"border-top-right-radius: 8px;\n"
-"border-bottom-left-radius: 8px;\n"
-"border-bottom-right-radius: 8px;\n"
-"}")
-        self.labelFrame_4.setFrameShape(QFrame.StyledPanel)
-        self.labelFrame_4.setFrameShadow(QFrame.Raised)
-        self.statusTitle_4 = QLabel(self.labelFrame_4)
-        self.statusTitle_4.setObjectName(u"statusTitle_4")
-        self.statusTitle_4.setGeometry(QRect(10, 10, 61, 16))
-        self.statusTitle_4.setStyleSheet(u"color: rgb(254, 121, 199);\n"
-"font: 800 20pt \"Inter Extra Bold\";")
-        self.statusTitle_4.setLineWidth(1)
-        self.statusTitle_4.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.status_4 = QLabel(self.labelFrame_4)
-        self.status_4.setObjectName(u"status_4")
-        self.status_4.setGeometry(QRect(70, 10, 61, 16))
-        self.status_4.setStyleSheet(u"")
-        self.status_4.setLineWidth(1)
-        self.status_4.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.versionTitle_4 = QLabel(self.labelFrame_4)
-        self.versionTitle_4.setObjectName(u"versionTitle_4")
-        self.versionTitle_4.setGeometry(QRect(10, 30, 101, 20))
-        self.versionTitle_4.setStyleSheet(u"color: rgb(254, 121, 199);\n"
-"font: 800 20pt \"Inter Extra Bold\";")
-        self.versionTitle_4.setLineWidth(1)
-        self.versionTitle_4.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.modelVersion_4 = QLabel(self.labelFrame_4)
-        self.modelVersion_4.setObjectName(u"modelVersion_4")
-        self.modelVersion_4.setGeometry(QRect(110, 30, 61, 16))
-        self.modelVersion_4.setStyleSheet(u"color: rgb(170, 85, 255);")
-        self.modelVersion_4.setLineWidth(1)
-        self.modelVersion_4.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.line_8 = QFrame(self.home)
-        self.line_8.setObjectName(u"line_8")
-        self.line_8.setGeometry(QRect(100, 340, 21, 16))
-        self.line_8.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_8.setFrameShadow(QFrame.Plain)
-        self.line_8.setLineWidth(5)
-        self.line_8.setFrameShape(QFrame.HLine)
-        self.line_11 = QFrame(self.home)
-        self.line_11.setObjectName(u"line_11")
-        self.line_11.setGeometry(QRect(100, 380, 21, 16))
-        self.line_11.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_11.setFrameShadow(QFrame.Plain)
-        self.line_11.setLineWidth(5)
-        self.line_11.setFrameShape(QFrame.HLine)
-        self.line_14 = QFrame(self.home)
-        self.line_14.setObjectName(u"line_14")
-        self.line_14.setGeometry(QRect(90, 370, 16, 21))
-        self.line_14.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_14.setFrameShadow(QFrame.Plain)
-        self.line_14.setLineWidth(5)
-        self.line_14.setFrameShape(QFrame.VLine)
-        self.line_15 = QFrame(self.home)
-        self.line_15.setObjectName(u"line_15")
-        self.line_15.setGeometry(QRect(90, 330, 16, 41))
-        self.line_15.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_15.setFrameShadow(QFrame.Plain)
-        self.line_15.setLineWidth(5)
-        self.line_15.setFrameShape(QFrame.VLine)
-        self.line_19 = QFrame(self.home)
-        self.line_19.setObjectName(u"line_19")
-        self.line_19.setGeometry(QRect(600, 210, 21, 16))
-        self.line_19.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_19.setFrameShadow(QFrame.Plain)
-        self.line_19.setLineWidth(5)
-        self.line_19.setFrameShape(QFrame.HLine)
-        self.line_20 = QFrame(self.home)
-        self.line_20.setObjectName(u"line_20")
-        self.line_20.setGeometry(QRect(600, 250, 21, 16))
-        self.line_20.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_20.setFrameShadow(QFrame.Plain)
-        self.line_20.setLineWidth(5)
-        self.line_20.setFrameShape(QFrame.HLine)
-        self.line_21 = QFrame(self.home)
-        self.line_21.setObjectName(u"line_21")
-        self.line_21.setGeometry(QRect(610, 130, 16, 41))
-        self.line_21.setStyleSheet(u"color: rgb(170, 99, 255);")
-        self.line_21.setFrameShadow(QFrame.Plain)
-        self.line_21.setLineWidth(5)
-        self.line_21.setFrameShape(QFrame.VLine)
-        self.line_22 = QFrame(self.home)
-        self.line_22.setObjectName(u"line_22")
-        self.line_22.setGeometry(QRect(600, 122, 21, 20))
-        self.line_22.setStyleSheet(u"color: rgb(170, 99, 255);")
-        self.line_22.setFrameShadow(QFrame.Plain)
-        self.line_22.setLineWidth(5)
-        self.line_22.setFrameShape(QFrame.HLine)
-        self.line_23 = QFrame(self.home)
-        self.line_23.setObjectName(u"line_23")
-        self.line_23.setGeometry(QRect(610, 240, 16, 21))
-        self.line_23.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_23.setFrameShadow(QFrame.Plain)
-        self.line_23.setLineWidth(5)
-        self.line_23.setFrameShape(QFrame.VLine)
-        self.line_24 = QFrame(self.home)
-        self.line_24.setObjectName(u"line_24")
-        self.line_24.setGeometry(QRect(610, 200, 16, 41))
-        self.line_24.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_24.setFrameShadow(QFrame.Plain)
-        self.line_24.setLineWidth(5)
-        self.line_24.setFrameShape(QFrame.VLine)
-        self.line_25 = QFrame(self.home)
-        self.line_25.setObjectName(u"line_25")
-        self.line_25.setGeometry(QRect(610, 100, 16, 31))
-        self.line_25.setStyleSheet(u"color: rgb(170, 99, 255);")
-        self.line_25.setFrameShadow(QFrame.Plain)
-        self.line_25.setLineWidth(5)
-        self.line_25.setFrameShape(QFrame.VLine)
-        self.line_26 = QFrame(self.home)
-        self.line_26.setObjectName(u"line_26")
-        self.line_26.setGeometry(QRect(610, 171, 16, 30))
-        self.line_26.setStyleSheet(u"color: rgb(4, 239, 188)")
-        self.line_26.setFrameShadow(QFrame.Plain)
-        self.line_26.setLineWidth(5)
-        self.line_26.setFrameShape(QFrame.VLine)
-        self.line_27 = QFrame(self.home)
-        self.line_27.setObjectName(u"line_27")
-        self.line_27.setGeometry(QRect(600, 163, 21, 21))
-        self.line_27.setStyleSheet(u"color: rgb(170, 99, 255);")
-        self.line_27.setFrameShadow(QFrame.Plain)
-        self.line_27.setLineWidth(5)
-        self.line_27.setFrameShape(QFrame.HLine)
-        self.cpuName = QLabel(self.home)
-        self.cpuName.setObjectName(u"cpuName")
-        self.cpuName.setGeometry(QRect(450, 118, 151, 31))
-        self.cpuName.setStyleSheet(u"color: #fff;\n"
+        self.modelVersion.setAlignment(Qt.AlignCenter)
+        self.cudatitle = QLabel(self.home)
+        self.cudatitle.setObjectName(u"cudatitle")
+        self.cudatitle.setGeometry(QRect(0, 50, 71, 21))
+        self.cudatitle.setFont(font5)
+        self.cudatitle.setStyleSheet(u"color: #aa84f0;\n"
+"background-color: transparent;\n"
+"font: 600 14pt \"Inter\";\n"
 "")
-        self.cpuName.setLineWidth(1)
-        self.cpuName.setAlignment(Qt.AlignCenter)
-        self.cpuName.setWordWrap(True)
-        self.gpuName = QLabel(self.home)
-        self.gpuName.setObjectName(u"gpuName")
-        self.gpuName.setGeometry(QRect(450, 158, 151, 31))
-        self.gpuName.setStyleSheet(u"color: #fff;\n"
-"")
-        self.gpuName.setLineWidth(1)
-        self.gpuName.setAlignment(Qt.AlignCenter)
-        self.gpuName.setWordWrap(True)
+        self.cudatitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.cudaDetected = QLabel(self.home)
         self.cudaDetected.setObjectName(u"cudaDetected")
-        self.cudaDetected.setGeometry(QRect(450, 208, 151, 21))
-        self.cudaDetected.setStyleSheet(u"color: #fff;\n"
+        self.cudaDetected.setGeometry(QRect(80, 50, 91, 21))
+        self.cudaDetected.setFont(font6)
+        self.cudaDetected.setStyleSheet(u"color: rgb(98, 114, 164);\n"
+"background-color: transparent;\n"
+"font: 650 10pt \"Inter\";\n"
 "")
-        self.cudaDetected.setLineWidth(1)
         self.cudaDetected.setAlignment(Qt.AlignCenter)
+        self.cudnntitle = QLabel(self.home)
+        self.cudnntitle.setObjectName(u"cudnntitle")
+        self.cudnntitle.setGeometry(QRect(0, 90, 81, 21))
+        self.cudnntitle.setFont(font5)
+        self.cudnntitle.setStyleSheet(u"color: #aa84f0;\n"
+"background-color: transparent;\n"
+"font: 600 14pt \"Inter\";\n"
+"")
+        self.cudnntitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.cudnnDetected = QLabel(self.home)
         self.cudnnDetected.setObjectName(u"cudnnDetected")
-        self.cudnnDetected.setGeometry(QRect(450, 248, 151, 21))
-        self.cudnnDetected.setStyleSheet(u"color: #fff;\n"
+        self.cudnnDetected.setGeometry(QRect(90, 90, 91, 21))
+        self.cudnnDetected.setFont(font6)
+        self.cudnnDetected.setStyleSheet(u"color: rgb(98, 114, 164);\n"
+"background-color: transparent;\n"
+"font: 650 10pt \"Inter\";\n"
 "")
-        self.cudnnDetected.setLineWidth(1)
         self.cudnnDetected.setAlignment(Qt.AlignCenter)
-        self.selectMap_2 = QPushButton(self.home)
-        self.selectMap_2.setObjectName(u"selectMap_2")
-        self.selectMap_2.setGeometry(QRect(240, 275, 150, 25))
-        self.selectMap_2.setMinimumSize(QSize(150, 25))
-        self.selectMap_2.setFont(font5)
-        self.selectMap_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.selectMap_2.setStyleSheet(u"#selectMap_2{\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"font: 300 10pt \"Inter Light\";\n"
-"}\n"
-"#selectMap_2::pressed {\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 180), stop:1 rgba(170, 85, 255, 180));\n"
-"font: 300 10pt \"Inter Light\";\n"
-"}")
-        self.selectMap_2.setFlat(False)
+        self.foreword = QLabel(self.home)
+        self.foreword.setObjectName(u"foreword")
+        self.foreword.setGeometry(QRect(0, 150, 101, 21))
+        self.foreword.setFont(font5)
+        self.foreword.setStyleSheet(u"color: #aa84f0;\n"
+"background-color: transparent;\n"
+"font: 600 14pt \"Inter\";\n"
+"")
+        self.foreword.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.foreword_2 = QLabel(self.home)
+        self.foreword_2.setObjectName(u"foreword_2")
+        self.foreword_2.setGeometry(QRect(110, 150, 511, 151))
+        self.foreword_2.setFont(font6)
+        self.foreword_2.setStyleSheet(u"color: rgb(98, 114, 164);\n"
+"background-color: transparent;\n"
+"font: 650 10pt \"Inter\";\n"
+"")
+        self.foreword_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.foreword_2.setWordWrap(True)
+        self.cputitle = QLabel(self.home)
+        self.cputitle.setObjectName(u"cputitle")
+        self.cputitle.setGeometry(QRect(240, 10, 51, 21))
+        self.cputitle.setFont(font5)
+        self.cputitle.setStyleSheet(u"color: #aa84f0;\n"
+"background-color: transparent;\n"
+"font: 600 14pt \"Inter\";\n"
+"")
+        self.cputitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.cpuName = QLabel(self.home)
+        self.cpuName.setObjectName(u"cpuName")
+        self.cpuName.setGeometry(QRect(300, 10, 331, 21))
+        self.cpuName.setFont(font6)
+        self.cpuName.setStyleSheet(u"color: #fff;\n"
+"background-color: transparent;\n"
+"font: 650 10pt \"Inter\";\n"
+"")
+        self.cpuName.setAlignment(Qt.AlignCenter)
+        self.gpuName = QLabel(self.home)
+        self.gpuName.setObjectName(u"gpuName")
+        self.gpuName.setGeometry(QRect(300, 50, 331, 21))
+        self.gpuName.setFont(font6)
+        self.gpuName.setStyleSheet(u"color: #fff;\n"
+"background-color: transparent;\n"
+"font: 650 10pt \"Inter\";\n"
+"")
+        self.gpuName.setAlignment(Qt.AlignCenter)
+        self.gputitle = QLabel(self.home)
+        self.gputitle.setObjectName(u"gputitle")
+        self.gputitle.setGeometry(QRect(240, 50, 51, 21))
+        self.gputitle.setFont(font5)
+        self.gputitle.setStyleSheet(u"color: #aa84f0;\n"
+"background-color: transparent;\n"
+"font: 600 14pt \"Inter\";\n"
+"")
+        self.gputitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.ramtitle = QLabel(self.home)
+        self.ramtitle.setObjectName(u"ramtitle")
+        self.ramtitle.setGeometry(QRect(240, 90, 51, 21))
+        self.ramtitle.setFont(font5)
+        self.ramtitle.setStyleSheet(u"color: #aa84f0;\n"
+"background-color: transparent;\n"
+"font: 600 14pt \"Inter\";\n"
+"")
+        self.ramtitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.ramName = QLabel(self.home)
+        self.ramName.setObjectName(u"ramName")
+        self.ramName.setGeometry(QRect(300, 90, 331, 21))
+        self.ramName.setFont(font6)
+        self.ramName.setStyleSheet(u"color: #fff;\n"
+"background-color: transparent;\n"
+"font: 650 10pt \"Inter\";\n"
+"")
+        self.ramName.setAlignment(Qt.AlignCenter)
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1872,10 +1583,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         if (self.tableWidget.rowCount() < 16):
             self.tableWidget.setRowCount(16)
-        font6 = QFont()
-        font6.setFamilies([u"Segoe UI"])
+        font7 = QFont()
+        font7.setFamilies([u"Segoe UI"])
         __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setFont(font6);
+        __qtablewidgetitem4.setFont(font7);
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(1, __qtablewidgetitem5)
@@ -1992,9 +1703,9 @@ class Ui_MainWindow(object):
         self.unusedPage2 = QWidget()
         self.unusedPage2.setObjectName(u"unusedPage2")
         self.stackedWidget.addWidget(self.unusedPage2)
-        self.unusedPage1 = QWidget()
-        self.unusedPage1.setObjectName(u"unusedPage1")
-        self.stackedWidget.addWidget(self.unusedPage1)
+        self.dashboard = QWidget()
+        self.dashboard.setObjectName(u"dashboard")
+        self.stackedWidget.addWidget(self.dashboard)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -2087,24 +1798,28 @@ class Ui_MainWindow(object):
         self.bottomBar.setObjectName(u"bottomBar")
         self.bottomBar.setMinimumSize(QSize(0, 22))
         self.bottomBar.setMaximumSize(QSize(16777215, 22))
+        self.bottomBar.setStyleSheet(u"background-color: rgb(0, 16, 30);")
         self.bottomBar.setFrameShape(QFrame.NoFrame)
         self.bottomBar.setFrameShadow(QFrame.Raised)
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
-        self.creditsLabel.setGeometry(QRect(0, 0, 141, 21))
+        self.creditsLabel.setGeometry(QRect(20, 0, 131, 21))
         self.creditsLabel.setMaximumSize(QSize(16777215, 21))
-        font7 = QFont()
-        font7.setFamilies([u"Inter Medium"])
-        font7.setPointSize(9)
-        font7.setBold(False)
-        font7.setItalic(False)
-        self.creditsLabel.setFont(font7)
-        self.creditsLabel.setStyleSheet(u"font: 300 9pt \"Inter Medium\";")
+        font8 = QFont()
+        font8.setFamilies([u"Inter Medium"])
+        font8.setPointSize(9)
+        font8.setBold(False)
+        font8.setItalic(False)
+        self.creditsLabel.setFont(font8)
+        self.creditsLabel.setStyleSheet(u"font: 300 9pt \"Inter Medium\";\n"
+"color: #aa84f0;")
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.version = QLabel(self.bottomBar)
         self.version.setObjectName(u"version")
-        self.version.setGeometry(QRect(537, 0, 101, 21))
-        self.version.setStyleSheet(u"font: 300 9pt \"Inter Medium\";")
+        self.version.setGeometry(QRect(600, 0, 31, 22))
+        self.version.setStyleSheet(u"font: 300 9pt \"Inter Medium\";\n"
+"padding: 0px;\n"
+"color: #aa84f0;")
         self.version.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.frame_size_grip = QFrame(self.bottomBar)
         self.frame_size_grip.setObjectName(u"frame_size_grip")
@@ -2113,6 +1828,15 @@ class Ui_MainWindow(object):
         self.frame_size_grip.setMaximumSize(QSize(20, 16777215))
         self.frame_size_grip.setFrameShape(QFrame.NoFrame)
         self.frame_size_grip.setFrameShadow(QFrame.Raised)
+        self.version_2 = QLabel(self.bottomBar)
+        self.version_2.setObjectName(u"version_2")
+        self.version_2.setGeometry(QRect(570, 3, 30, 15))
+        self.version_2.setStyleSheet(u"padding: 0px;\n"
+"border: 0px;")
+        self.version_2.setTextFormat(Qt.PlainText)
+        self.version_2.setPixmap(QPixmap(u":/images/beta.png"))
+        self.version_2.setScaledContents(True)
+        self.version_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.verticalLayout_6.addWidget(self.bottomBar)
 
@@ -2133,13 +1857,13 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"SSGPlus", None))
-        self.ssglabel.setText("")
-        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color: rgb(254, 121, 199);\">SSGPlus</span></p></body></html>", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Railguard", None))
+        self.railguard.setText("")
+        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color: rgb(254, 121, 199);\">Railguard</span></p></body></html>", None))
         self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#aa63ff;\">Home</span></p></body></html>", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.btn_page2.setText(QCoreApplication.translate("MainWindow", u"Page 2", None))
+        self.btn_dashboard.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
         self.btn_page3.setText(QCoreApplication.translate("MainWindow", u"Page 3", None))
         self.btn_page4.setText(QCoreApplication.translate("MainWindow", u"Page 4", None))
         self.btn_page5.setText(QCoreApplication.translate("MainWindow", u"Page 5", None))
@@ -2163,7 +1887,7 @@ class Ui_MainWindow(object):
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Segoe UI'; color:#516395;\">Theme by: Zeno Rocha, enigmapr0ject</span></p>\n"
 "<p align=\"center\" st"
                         "yle=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Segoe UI'; color:#516395;\">UI framework by: Wanderson M. Pimenta</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Segoe UI'; font-size:9pt; color:#ffffff;\">Developed by enigmapr0ject</span></p></body></html>", None))
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Segoe UI'; font-size:9pt; color:#ffaaff;\">Developed by enigmapr0ject</span></p></body></html>", None))
         self.titleRightInfo.setText("")
 #if QT_CONFIG(tooltip)
         self.minimizeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
@@ -2177,32 +1901,20 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
-        self.dashboardTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">SSGPlus</span></p></body></html>", None))
-        self.selectMap.setText(QCoreApplication.translate("MainWindow", u"Select Map", None))
-        self.statusTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Overlay:</span></p></body></html>", None))
-        self.status.setText(QCoreApplication.translate("MainWindow", u"Disabled", None))
-        self.versionTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Model Version:</span></p></body></html>", None))
-        self.modelVersion.setText("")
-        self.statusTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Overlay:</span></p></body></html>", None))
-        self.status_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ff0000;\">Disabled</span></p></body></html>", None))
-        self.versionTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Model Version:</span></p></body></html>", None))
-        self.modelVersion_2.setText("")
-        self.predict.setText(QCoreApplication.translate("MainWindow", u"Predict", None))
-        self.mapSelected.setText(QCoreApplication.translate("MainWindow", u"Map not selected.", None))
-        self.predictionOutput.setText(QCoreApplication.translate("MainWindow", u"No predictions.", None))
-        self.predictionOutputTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Prediction output</span></p></body></html>", None))
-        self.statusTitle_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"right\"><span style=\" font-size:10pt; font-weight:600;\">System Information</span></p></body></html>", None))
-        self.versionTitle_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"right\"><span style=\" font-size:10pt; font-weight:600;\">TF Version:</span></p></body></html>", None))
-        self.tensorflowVersion.setText("")
-        self.statusTitle_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Overlay:</span></p></body></html>", None))
-        self.status_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ff0000;\">Disabled</span></p></body></html>", None))
-        self.versionTitle_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Model Version:</span></p></body></html>", None))
-        self.modelVersion_4.setText("")
-        self.cpuName.setText(QCoreApplication.translate("MainWindow", u"CPU: ", None))
-        self.gpuName.setText(QCoreApplication.translate("MainWindow", u"GPU:", None))
-        self.cudaDetected.setText(QCoreApplication.translate("MainWindow", u"CUDA:", None))
-        self.cudnnDetected.setText(QCoreApplication.translate("MainWindow", u"cuDNN:", None))
-        self.selectMap_2.setText(QCoreApplication.translate("MainWindow", u"Open Predicted Map", None))
+        self.modeltitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Model:</p></body></html>", None))
+        self.modelVersion.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.cudatitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>CUDA:</p></body></html>", None))
+        self.cudaDetected.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.cudnntitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>CUDNN:</p></body></html>", None))
+        self.cudnnDetected.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.foreword.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Foreword:</p></body></html>", None))
+        self.foreword_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:9pt; font-style:italic;\">Railguard's AI model is not perfect. Railguard was trained on a hand-picked selection of images of signals alongside other information; this data is not 100% clean, reliable or perfect. This application takes regular screenshots of your Roblox Player window to relay them to Railguard's AI model to predict signal aspects and draw on. Your screenshots are not saved, sent or leveraged in any way. Railguard does not guarantee a training assessment pass, safety from demotions or action, nor passing of SG/SSG applications. Railguard's AI relies on your graphics card, any damage is not the responsibility of the developer. Use at your own risk. Press the &quot;layout&quot; icon on the left menu to continue using RaIlguard. More information is available on our website.</span></p></body></html>", None))
+        self.cputitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>CPU:</p></body></html>", None))
+        self.cpuName.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.gpuName.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.gputitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>GPU:</p></body></html>", None))
+        self.ramtitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>RAM:</p></body></html>", None))
+        self.ramName.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
         self.labelVersion_3.setText(QCoreApplication.translate("MainWindow", u"Label description", None))
@@ -2272,7 +1984,8 @@ class Ui_MainWindow(object):
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
-        self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#aa55ff;\">Made by Puremaven</span></p></body></html>", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#aa55ff;\">Version</span><span style=\" color:#aa55ff;\"> 0.0.1</span></p></body></html>", None))
+        self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#aa84f0;\">Made by Ameasere</span></p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#aa84f0;\">0.0.4</span></p></body></html>", None))
+        self.version_2.setText("")
     # retranslateUi
 

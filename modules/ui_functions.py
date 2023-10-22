@@ -18,6 +18,7 @@
 # ///////////////////////////////////////////////////////////////
 from main import *
 import platform
+from .custom_grips import CustomGrip
 
 systemLabel = platform.system()
 # GLOBALS
@@ -38,6 +39,11 @@ class UIFunctions(MainWindow):
             if platform.system() != "Darwin":
                 self.ui.appMargins.setContentsMargins(0, 0, 0, 0)
             self.ui.maximizeRestoreAppBtn.setToolTip("Restore")
+            self.ui.frame_size_grip.hide()
+            self.left_grip.hide()
+            self.right_grip.hide()
+            self.top_grip.hide()
+            self.bottom_grip.hide()
         else:
             GLOBAL_STATE = False
             self.showNormal()
@@ -45,6 +51,11 @@ class UIFunctions(MainWindow):
             if platform.system() == "Windows":
                 self.ui.appMargins.setContentsMargins(10, 10, 10, 10)
             self.ui.maximizeRestoreAppBtn.setToolTip("Maximize")
+            self.ui.frame_size_grip.show()
+            self.left_grip.show()
+            self.right_grip.show()
+            self.top_grip.show()
+            self.bottom_grip.show()
 
     def closeApp(self):
         try:
@@ -229,6 +240,8 @@ class UIFunctions(MainWindow):
             str = open(file, 'r').read()
             self.ui.styleSheet.setStyleSheet(str)
 
+
+
     # START - GUI DEFINITIONS
     # ///////////////////////////////////////////////////////////////
     def uiDefinitions(self):
@@ -256,6 +269,12 @@ class UIFunctions(MainWindow):
                     self.dragPos = event.globalPosition().toPoint()
                     event.accept()
             self.ui.titleRightInfo.mouseMoveEvent = moveWindow
+
+            # CUSTOM GRIPS
+            self.left_grip = CustomGrip(self, Qt.LeftEdge, True)
+            self.right_grip = CustomGrip(self, Qt.RightEdge, True)
+            self.top_grip = CustomGrip(self, Qt.TopEdge, True)
+            self.bottom_grip = CustomGrip(self, Qt.BottomEdge, True)
 
         else:
             if platform.system() == "Windows":

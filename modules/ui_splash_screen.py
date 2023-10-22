@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'splash_screenbZwbSO.ui'
+## Form generated from reading UI file 'splash_screen.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.1
+## Created by: Qt User Interface Compiler version 6.5.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -23,12 +23,14 @@ class Ui_SplashScreen(object):
     def setupUi(self, SplashScreen):
         if not SplashScreen.objectName():
             SplashScreen.setObjectName(u"SplashScreen")
-        SplashScreen.resize(680, 400)
+        SplashScreen.resize(691, 400)
         icon = QIcon()
-        icon.addFile(u":/images/ssg+.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/images/railguard.ico", QSize(), QIcon.Normal, QIcon.Off)
         SplashScreen.setWindowIcon(icon)
+        SplashScreen.setStyleSheet(u"")
         self.centralwidget = QWidget(SplashScreen)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.centralwidget.setStyleSheet(u"")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -36,7 +38,7 @@ class Ui_SplashScreen(object):
         self.dropShadowFrame = QFrame(self.centralwidget)
         self.dropShadowFrame.setObjectName(u"dropShadowFrame")
         self.dropShadowFrame.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(239, 239, 239);\n"
+"	background-color: rgb(0, 9, 31);\n"
 "	color: rgb(220, 220, 220);\n"
 "	border-radius: 10px;\n"
 "}")
@@ -51,7 +53,8 @@ class Ui_SplashScreen(object):
         font.setBold(True)
         font.setItalic(False)
         self.label_title.setFont(font)
-        self.label_title.setStyleSheet(u"color: rgb(254, 121, 199);\n"
+        self.label_title.setStyleSheet(u"color: #aa84f0;\n"
+"background-color: transparent;\n"
 "font: 600 38pt \"Inter\";\n"
 "")
         self.label_title.setAlignment(Qt.AlignCenter)
@@ -65,27 +68,30 @@ class Ui_SplashScreen(object):
         font1.setItalic(False)
         self.label_description.setFont(font1)
         self.label_description.setStyleSheet(u"color: rgb(98, 114, 164);\n"
+"background-color: transparent;\n"
 "font: 600 14pt \"Inter\";")
         self.label_description.setAlignment(Qt.AlignCenter)
         self.progressBar = QProgressBar(self.dropShadowFrame)
         self.progressBar.setObjectName(u"progressBar")
         self.progressBar.setGeometry(QRect(50, 280, 561, 23))
         self.progressBar.setStyleSheet(u"QProgressBar {\n"
-"	background-color: rgb(98, 114, 164);\n"
-"	color: rgb(200, 200, 200);\n"
+"	background-color: #00091f;\n"
+"	color: rgb(230, 230, 230);\n"
+"	border: none;\n"
 "	border-style: none;\n"
+"	border-color: #00091f;\n"
 "	border-radius: 10px;\n"
 "	text-align: center;\n"
-"	font: 300 10pt \"Inter\";\n"
+"	font: 650 10pt \"Inter\";\n"
 "}\n"
 "QProgressBar::chunk{\n"
 "	border-radius: 10px;\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0.466, x2:0.858, y2:0.494091, stop:0 rgba(0, 9, 31, 255), stop:0.789773 rgba(112, 87, 158, 255), stop:1 rgba(157, 122, 222, 255));\n"
 "}")
         self.progressBar.setValue(24)
         self.label_loading = QLabel(self.dropShadowFrame)
         self.label_loading.setObjectName(u"label_loading")
-        self.label_loading.setGeometry(QRect(0, 320, 661, 21))
+        self.label_loading.setGeometry(QRect(0, 320, 671, 21))
         font2 = QFont()
         font2.setFamilies([u"Inter Light"])
         font2.setPointSize(10)
@@ -93,52 +99,53 @@ class Ui_SplashScreen(object):
         font2.setItalic(False)
         self.label_loading.setFont(font2)
         self.label_loading.setStyleSheet(u"color: rgb(98, 114, 164);\n"
-"font: 300 10pt \"Inter Light\";")
+"background-color: transparent;\n"
+"font: 400 10pt \"Inter Light\";")
         self.label_loading.setAlignment(Qt.AlignCenter)
-        self.label_credits = QLabel(self.dropShadowFrame)
-        self.label_credits.setObjectName(u"label_credits")
-        self.label_credits.setGeometry(QRect(20, 350, 621, 21))
-        font3 = QFont()
-        font3.setFamilies([u"Inter Extra Light"])
-        font3.setPointSize(10)
-        font3.setBold(False)
-        font3.setItalic(False)
-        self.label_credits.setFont(font3)
-        self.label_credits.setStyleSheet(u"color: rgb(98, 114, 164);\n"
-"font: 200 10pt \"Inter Extra Light\";")
-        self.label_credits.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.selectMap = QPushButton(self.dropShadowFrame)
         self.selectMap.setObjectName(u"selectMap")
-        self.selectMap.setGeometry(QRect(270, 350, 111, 25))
+        self.selectMap.setGeometry(QRect(290, 350, 91, 25))
         self.selectMap.setMinimumSize(QSize(20, 20))
         self.selectMap.setFont(font2)
         self.selectMap.setCursor(QCursor(Qt.PointingHandCursor))
         self.selectMap.setStyleSheet(u"#selectMap {\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"font: 300 10pt \"Inter Light\";\n"
+"background-color: #aa84f0;\n"
+"font: 450 10pt \"Inter Light\";\n"
 "}\n"
 "#selectMap::pressed {\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 180), stop:1 rgba(170, 85, 255, 180));\n"
-"font: 300 10pt \"Inter Light\";\n"
+"background-color: rgb(182, 170, 240);\n"
+"font: 450 10pt \"Inter Light\";\n"
 "}\n"
 "QPushButton {\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
+"	border: 2px solid #aa84f0;\n"
 "	color: #fff;\n"
 "	border-radius: 5px;\n"
 "	background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "}\n"
 "QPushButton:hover {\n"
-"	background-color: rgb(57, 65, 80);\n"
+"	background-color: rgb(199, 152, 240);\n"
 "	color: #fff;\n"
-"	border: 2px solid qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"	border: rgb(199, 152, 240);\n"
 "}\n"
 "QPushButton:pressed {\n"
-"	background-color: rgb(35, 40, 49);\n"
+"	background-color: rgb(182, 170, 240);\n"
 "	color: #fff;\n"
-"	border: 2px "
-                        "solid qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"	border: rgb(182, 170, 240);\n"
 "}")
         self.selectMap.setFlat(False)
+        self.label_title_2 = QLabel(self.dropShadowFrame)
+        self.label_title_2.setObjectName(u"label_title_2")
+        self.label_title_2.setGeometry(QRect(0, 310, 671, 71))
+        self.label_title_2.setFont(font)
+        self.label_title_2.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0.501, y1:0, x2:0.516455, y2:1, stop:0.340909 rgba(0, 9, 31, 255), stop:1 rgba(77, 77, 113, 255));\n"
+"")
+        self.label_title_2.setAlignment(Qt.AlignCenter)
+        self.label_title_2.raise_()
+        self.label_title.raise_()
+        self.label_description.raise_()
+        self.progressBar.raise_()
+        self.label_loading.raise_()
+        self.selectMap.raise_()
 
         self.verticalLayout.addWidget(self.dropShadowFrame)
 
@@ -150,11 +157,11 @@ class Ui_SplashScreen(object):
     # setupUi
 
     def retranslateUi(self, SplashScreen):
-        SplashScreen.setWindowTitle(QCoreApplication.translate("SplashScreen", u"SSGPlus", None))
-        self.label_title.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-weight:600;\">SSGPlus</span></p></body></html>", None))
-        self.label_description.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p>SUPERCHARGE SIGNALLING</p></body></html>", None))
-        self.label_loading.setText(QCoreApplication.translate("SplashScreen", u"loading...", None))
-        self.label_credits.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-weight:700;\">Created</span>: Puremaven</p></body></html>", None))
+        SplashScreen.setWindowTitle(QCoreApplication.translate("SplashScreen", u"Railguard", None))
+        self.label_title.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p>Railguard</p></body></html>", None))
+        self.label_description.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p>SUPERVISED SIGNALLING</p></body></html>", None))
+        self.label_loading.setText(QCoreApplication.translate("SplashScreen", u"Loading...", None))
         self.selectMap.setText(QCoreApplication.translate("SplashScreen", u"Exit", None))
+        self.label_title_2.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><br/></p></body></html>", None))
     # retranslateUi
 

@@ -1,7 +1,7 @@
 VSVersionInfo(
   ffi=FixedFileInfo(
-    filevers=(0, 0, 1, 0),
-    prodvers=(0, 0, 1, 0),
+    filevers=(1, 0, 0, 0),
+    prodvers=(1, 0, 0, 0),
     mask=0x3f,
     flags=0x0,
     OS=0x40004,
@@ -14,14 +14,14 @@ VSVersionInfo(
       [
       StringTable(
         u'040904B0',
-        [StringStruct(u'CompanyName', u'enigmapr0ject'),
-        StringStruct(u'FileDescription', u'Supercharged signalling.'),
-        StringStruct(u'FileVersion', u'0.0.1'),
-        StringStruct(u'InternalName', u'SSGPlus'),
-        StringStruct(u'LegalCopyright', u'Leighton Brooks 2023'),
-        StringStruct(u'OriginalFilename', u'SSGPlus.exe'),
-        StringStruct(u'ProductName', u'SSGPlus'),
-        StringStruct(u'ProductVersion', u'0.0.1.0')])
+        [StringStruct(u'CompanyName', u'Ameasere'),
+        StringStruct(u'FileDescription', u'Railguard'),
+        StringStruct(u'FileVersion', u'1.0.0'),
+        StringStruct(u'InternalName', u'Railguard'),
+        StringStruct(u'LegalCopyright', u'Railguard 2023'),
+        StringStruct(u'OriginalFilename', u'Railguard.exe'),
+        StringStruct(u'ProductName', u'Railguard'),
+        StringStruct(u'ProductVersion', u'1.0.0.0')])
       ]), 
     VarFileInfo([VarStruct(u'Translation', [1033, 1200])])
   ]

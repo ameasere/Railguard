@@ -1,28 +1,35 @@
 """
-Main Driver Code for SSGPlus
+Main Driver Code for Railguard
 """
 # ///////////////////////////////////////////////////////////////
 #
-# BY: WANDERSON M.PIMENTA
+# Template by WANDERSON M.PIMENTA
 # PROJECT MADE WITH: Qt Designer and PySide6
 # V: 0.0.1
 # ///////////////////////////////////////////////////////////////
-# Developed by Leighton Brooks (ameasere)
+# Developed by ameasere
 import base64
 import ntpath
 import os
 import platform
+import random
 import sys
 import time
 import requests
 import webbrowser
 from threading import *
-from PySide6 import QtGui, QtWidgets, QtCore
-from PySide6.QtWidgets import QMainWindow
 from modules import *
-from PySide6.QtCore import *
 import traceback
-from hashlib import sha256
+import sys
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+import tensorflow as tf
+import numpy as np
+import cv2
+import h5py
+import psutil
+import subprocess
+import re
+import GPUtil
 
 # warnings.filterwarnings('ignore')
 # os.environ['QT_DEBUG_PLUGINS'] = "1"
@@ -35,7 +42,7 @@ if platform.system() == "Windows":
         os.environ["QT_FONT_DPI"] = str(ctypes.windll.shcore.GetScaleFactorForDevice(0) * 96 / 72)
     else:
         os.environ["QT_FONT_DPI"] = "96"
-title = "SSGPlus"
+title = "Railguard"
 
 
 class WorkerSignals(QObject):
@@ -54,7 +61,7 @@ class WorkerSignals(QObject):
         object data returned from processing, anything
 
     '''
-    finished = Signal()  # QtCore.Signal
+    finished = Signal()  # Signal
     error = Signal(tuple)
     result = Signal(object)
     started = Signal()
@@ -82,7 +89,7 @@ class Worker(QRunnable):
         self.kwargs = kwargs
         self.signals = WorkerSignals()
 
-    @Slot()  # QtCore.Slot
+    @Slot()  # Slot
     def run(self):
         """
         Initialise the runner function with passed args, kwargs.
@@ -101,8 +108,10 @@ class Worker(QRunnable):
         finally:
             self.signals.finished.emit()  # Done
 
-class MyStream(QtCore.QObject):
+
+class MyStream(QObject):
     message = Signal(str)
+
     def __init__(self, parent=None):
         super(MyStream, self).__init__(parent)
 
@@ -113,11 +122,13 @@ class MyStream(QtCore.QObject):
         # Flush stdout
         pass
 
+
 class MainWindow(QMainWindow):
     """
     Dashboard
     """
     predictionFinished = Signal()
+
     def __init__(self, model):
         # Call to QMainWindow as super
         super(MainWindow, self).__init__()
@@ -128,16 +139,18 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         widgets = self.ui
-        self.__rt: RepeatedTimer | None = None
+        self.ui.titleLeftApp.setText("Railguard")
+        self.__rt: RepeatedTimer = None
         self.dragPos = None
         self.__threadpool = QThreadPool()
         self.__model = model
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
         # APPLY TEXTS
         self.setWindowTitle(title)
-        self.ui.predict.setEnabled(False)
-        self.ui.selectMap.clicked.connect(self.selectMap)
-        self.ui.predict.clicked.connect(self.predictionThread)
+        #self.ui.predict.setEnabled(False)
+        #self.ui.selectMap.clicked.connect(self.selectMap)
+        #self.ui.predict.clicked.connect(self.predictionThread)
+        self.setFixedSize(self.width(), self.height())
 
         # TOGGLE MENU
         widgets.toggleButton.clicked.connect(
@@ -148,13 +161,15 @@ class MainWindow(QMainWindow):
 
         # BUTTONS CLICK
         widgets.btn_home.clicked.connect(self.buttonClick)
+        widgets.btn_dashboard.clicked.connect(self.buttonClick)
+        widgets.btn_credits.clicked.connect(self.buttonClick)
         widgets.closeAppBtn.clicked.connect(self.buttonClick)
 
-        self.leftMenuShadowLower = QtWidgets.QGraphicsDropShadowEffect()
+        self.leftMenuShadowLower = QGraphicsDropShadowEffect()
         self.leftMenuShadowLower.setBlurRadius(5)
         self.leftMenuShadowLower.setXOffset(2)
         self.leftMenuShadowLower.setYOffset(0)
-        self.leftMenuShadowLower.setColor(QtGui.QColor(0, 0, 0, 50))
+        self.leftMenuShadowLower.setColor(QColor(0, 0, 0, 50))
         self.ui.leftMenuBg.setGraphicsEffect(self.leftMenuShadowLower)
 
         # EXTRA LEFT BOX
@@ -176,71 +191,87 @@ class MainWindow(QMainWindow):
             """
             UIFunctions.toggleRightBox(self, True)
 
-        # Theme hack
-        theme = "themes/SSGPlus.qss"
-        UIFunctions.theme(self, theme, True)
-
         # SHOW APP
         self.show()
         # widgets.btn_more.clicked.connect(self.buttonClick)
         self.ui.titleLeftDescription.setText("Dashboard")
 
-        self.closeAppBtnShadow = QtWidgets.QGraphicsDropShadowEffect()
+        self.closeAppBtnShadow = QGraphicsDropShadowEffect()
         self.closeAppBtnShadow.setBlurRadius(22)
         self.closeAppBtnShadow.setXOffset(0)
         self.closeAppBtnShadow.setYOffset(0)
-        self.closeAppBtnShadow.setColor(QtGui.QColor(0, 0, 0, 60))
+        self.closeAppBtnShadow.setColor(QColor(255, 255, 255, 90))
         self.ui.closeAppBtn.setGraphicsEffect(self.closeAppBtnShadow)
 
-        self.maximizeRestoreAppBtnShadow = QtWidgets.QGraphicsDropShadowEffect()
+        self.maximizeRestoreAppBtnShadow = QGraphicsDropShadowEffect()
         self.maximizeRestoreAppBtnShadow.setBlurRadius(22)
         self.maximizeRestoreAppBtnShadow.setXOffset(0)
         self.maximizeRestoreAppBtnShadow.setYOffset(0)
-        self.maximizeRestoreAppBtnShadow.setColor(QtGui.QColor(0, 0, 0, 60))
+        self.maximizeRestoreAppBtnShadow.setColor(QColor(255, 255, 255, 90))
         self.ui.maximizeRestoreAppBtn.setGraphicsEffect(self.maximizeRestoreAppBtnShadow)
 
-        self.minimizeAppBtnShadow = QtWidgets.QGraphicsDropShadowEffect()
+        self.minimizeAppBtnShadow = QGraphicsDropShadowEffect()
         self.minimizeAppBtnShadow.setBlurRadius(22)
         self.minimizeAppBtnShadow.setXOffset(0)
         self.minimizeAppBtnShadow.setYOffset(0)
-        self.minimizeAppBtnShadow.setColor(QtGui.QColor(0, 0, 0, 60))
+        self.minimizeAppBtnShadow.setColor(QColor(255, 255, 255, 90))
         self.ui.minimizeAppBtn.setGraphicsEffect(self.minimizeAppBtnShadow)
 
-        self.authorLabelShadow = QtWidgets.QGraphicsDropShadowEffect()
-        self.authorLabelShadow.setBlurRadius(22)
-        self.authorLabelShadow.setXOffset(0)
-        self.authorLabelShadow.setYOffset(0)
-        self.authorLabelShadow.setColor(QtGui.QColor(0, 0, 0, 60))
-        self.ui.creditsLabel.setGraphicsEffect(self.authorLabelShadow)
+        self.modelTitleShadow = QGraphicsDropShadowEffect()
+        self.modelTitleShadow.setBlurRadius(22)
+        self.modelTitleShadow.setXOffset(0)
+        self.modelTitleShadow.setYOffset(0)
+        self.modelTitleShadow.setColor(QColor(255, 255, 255, 90))
+        self.ui.modeltitle.setGraphicsEffect(self.modelTitleShadow)
 
-        self.versionLabelShadow = QtWidgets.QGraphicsDropShadowEffect()
-        self.versionLabelShadow.setBlurRadius(22)
-        self.versionLabelShadow.setXOffset(0)
-        self.versionLabelShadow.setYOffset(0)
-        self.versionLabelShadow.setColor(QtGui.QColor(0, 0, 0, 60))
-        self.ui.version.setGraphicsEffect(self.versionLabelShadow)
-
-        self.titleShadow = QtWidgets.QGraphicsDropShadowEffect()
-        self.titleShadow.setBlurRadius(22)
-        self.titleShadow.setXOffset(0)
-        self.titleShadow.setYOffset(0)
-        self.titleShadow.setColor(QtGui.QColor(0, 0, 0, 150))
-        self.ui.dashboardTitle.setGraphicsEffect(self.titleShadow)
-
-
-        self.titleLeftAppShadow = QtWidgets.QGraphicsDropShadowEffect()
+        self.titleLeftAppShadow = QGraphicsDropShadowEffect()
         self.titleLeftAppShadow.setBlurRadius(22)
         self.titleLeftAppShadow.setXOffset(0)
         self.titleLeftAppShadow.setYOffset(0)
-        self.titleLeftAppShadow.setColor(QtGui.QColor(0, 0, 0, 60))
+        self.titleLeftAppShadow.setColor(QColor(0, 0, 0, 60))
         self.ui.titleLeftApp.setGraphicsEffect(self.titleLeftAppShadow)
 
-        self.titleLeftDescriptionShadow = QtWidgets.QGraphicsDropShadowEffect()
+        self.titleLeftDescriptionShadow = QGraphicsDropShadowEffect()
         self.titleLeftDescriptionShadow.setBlurRadius(22)
         self.titleLeftDescriptionShadow.setXOffset(0)
         self.titleLeftDescriptionShadow.setYOffset(0)
-        self.titleLeftDescriptionShadow.setColor(QtGui.QColor(0, 0, 0, 60))
+        self.titleLeftDescriptionShadow.setColor(QColor(0, 0, 0, 60))
         self.ui.titleLeftDescription.setGraphicsEffect(self.titleLeftDescriptionShadow)
+
+        self.cudaTitleShadow = QGraphicsDropShadowEffect()
+        self.cudaTitleShadow.setBlurRadius(22)
+        self.cudaTitleShadow.setXOffset(0)
+        self.cudaTitleShadow.setYOffset(0)
+        self.cudaTitleShadow.setColor(QColor(255, 255, 255, 90))
+        self.ui.cudatitle.setGraphicsEffect(self.cudaTitleShadow)
+
+        self.cudnnTitleShadow = QGraphicsDropShadowEffect()
+        self.cudnnTitleShadow.setBlurRadius(22)
+        self.cudnnTitleShadow.setXOffset(0)
+        self.cudnnTitleShadow.setYOffset(0)
+        self.cudnnTitleShadow.setColor(QColor(255, 255, 255, 90))
+        self.ui.cudnntitle.setGraphicsEffect(self.cudnnTitleShadow)
+
+        self.cpuTitleShadow = QGraphicsDropShadowEffect()
+        self.cpuTitleShadow.setBlurRadius(22)
+        self.cpuTitleShadow.setXOffset(0)
+        self.cpuTitleShadow.setYOffset(0)
+        self.cpuTitleShadow.setColor(QColor(255, 255, 255, 90))
+        self.ui.cputitle.setGraphicsEffect(self.cpuTitleShadow)
+
+        self.gpuTitleShadow = QGraphicsDropShadowEffect()
+        self.gpuTitleShadow.setBlurRadius(22)
+        self.gpuTitleShadow.setXOffset(0)
+        self.gpuTitleShadow.setYOffset(0)
+        self.gpuTitleShadow.setColor(QColor(255, 255, 255, 90))
+        self.ui.gputitle.setGraphicsEffect(self.gpuTitleShadow)
+
+        self.ramTitleShadow = QGraphicsDropShadowEffect()
+        self.ramTitleShadow.setBlurRadius(22)
+        self.ramTitleShadow.setXOffset(0)
+        self.ramTitleShadow.setYOffset(0)
+        self.ramTitleShadow.setColor(QColor(255, 255, 255, 90))
+        self.ui.ramtitle.setGraphicsEffect(self.ramTitleShadow)
 
         # SET HOME PAGE AND SELECT MENU
         widgets.stackedWidget.setCurrentWidget(widgets.home)
@@ -250,14 +281,20 @@ class MainWindow(QMainWindow):
 
         # Home Screen
         self.ui.credits.hide()
-        self.ui.predictionstdout.hide()
-        self.ui.predictionOutputTitle.hide()
-        self.ui.selectMap_2.hide()
-
-        self.ui.tensorflowVersion.setText(" " + str(tf.__version__))
-        self.ui.cpuName.setText(f"CPU: {self.get_processor_name()}")
-        self.ui.gpuName.setText(f"GPU: {GPUtil.getGPUs()[0].name}")
-
+        self.ui.cpuName.setText(f"{self.get_processor_name()}")
+        self.ui.gpuName.setText(f"{GPUtil.getGPUs()[0].name}")
+        import wmi
+        c = wmi.WMI()
+        memory_info = c.Win32_PhysicalMemory()
+        ram_speed = None
+        for memory in memory_info:
+            if memory.Speed:
+                ram_speed = memory.Speed
+        if ram_speed is None:
+            ram_speed = "Unknown"
+        memory_info = None
+        c = None
+        self.ui.ramName.setText(f"{str(round(psutil.virtual_memory().total / (1024.0 ** 3)))} GB @ {ram_speed} MHz")
 
         def extract_release_version(output):
             pattern = r"release (\d+\.\d+)"
@@ -271,95 +308,40 @@ class MainWindow(QMainWindow):
 
         # Extract the release version number
         cudaVersion = extract_release_version(cudaOutput)
+        # End the subprocess
+        cudaOutput = None
         # If this is not a float or integer, then its not installed
         try:
             float(cudaVersion)
         except TypeError:
             cudaVersion = "Not Detected"
-        self.ui.cudaDetected.setText(f"CUDA: {cudaVersion}")
-        self.ui.cudnnDetected.setText(f"CUDNN: {self.getCUDNNversion()}")
-
-        hash = sha256("dDhAI4aDx7tqJmqXwhLn".encode()).hexdigest()
-        headers = {"Authorization": f"Bearer {hash}"}
-        r2 = requests.get("https://api.ameasere.com/ssgplus/modelVersion", headers=headers)
-        if r2.status_code == 200:
-            self.ui.modelVersion.setText(r2.json()['version'])
-        else:
-            self.ui.modelVersion.setText("Unknown")
-
-        self.ui.selectMap_2.clicked.connect(self.openPredictionMap)
-
+        self.ui.cudaDetected.setText(f"{cudaVersion}")
+        self.ui.cudnnDetected.setText(f"{self.getCUDNNversion()}")
+        self.ui.modelVersion.setText("0.0.4")
 
     def predictionThread(self):
-        self.ui.predictionstdout.clear()
-        self.ui.predictionstdout.show()
-        self.ui.predictionOutputTitle.show()
         self.__predictionThread = Thread(target=self.predictNew, args=())
         self.__predictionThread.start()
 
     def predictionFinishedSlot(self):
         if self.__count != 0:
-            self.ui.predictionOutput.setStyleSheet("color: #2aa14d;")
-            self.ui.selectMap_2.setStyleSheet("""
-            #selectMap_2{
-                background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));
-                font: 300 10pt "Inter Light";
-                }
-                #selectMap_2::pressed {
-                background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 180), stop:1 rgba(170, 85, 255, 180));
-                font: 300 10pt "Inter Light";
-                }
-            """)
-            self.ui.selectMap_2.setEnabled(True)
-            self.ui.selectMap_2.show()
+            pass
         else:
-            self.ui.predictionOutput.setStyleSheet("color: #ff0000;")
-            self.ui.selectMap_2.setStyleSheet("""
-            #selectMap_2{
-            background-color: rgb(184, 184, 184);
-            }
-            """)
-            self.ui.selectMap_2.setEnabled(False)
-            self.ui.selectMap_2.hide()
-        self.ui.predictionOutput.setText(f"{str(self.__count)} predictions.")
-        self.ui.predictionstdout.appendPlainText(f"{str(self.__count)} predictions.\nMap: {self.__mapname}\nTime taken: {str(self.__time_taken)} seconds.\nTrained against {str(self.__number_of_datapoints)} datapoints.")
+            pass
+            # appendPlainText(
+            # f"{str(self.__count)} predictions.\nMap: {self.__mapname}\nTime taken: {str(self.__time_taken)} seconds.\nTrained against {str(self.__number_of_datapoints)} datapoints.")
         # Show the final image with the matched area.
 
     def openPredictionMap(self):
-        # Open a new window with just the image
-        self.predictionMapWindow = QtWidgets.QMainWindow()
-        centralImage = QtWidgets.QLabel(self.predictionMapWindow)
-        # Predicted image is an RGB output from CV
-        image = self.__predicted_image
-        height, width, channels = image.shape
-        bytes_per_line = channels * width
-        qimage = QImage(image.data, width, height, bytes_per_line, QImage.Format_RGB888)
-        qpixmap = QPixmap.fromImage(qimage)
-        centralImage.setPixmap(QtGui.QPixmap(qpixmap))
-        self.predictionMapWindow.setCentralWidget(centralImage)
-        # Set title and icon
-        self.predictionMapWindow.setWindowTitle("Prediction Map: " + self.__mapname)
-        icon = QIcon()
-        icon.addFile(u":/images/ssg+.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.predictionMapWindow.setWindowIcon(icon)
-        self.predictionMapWindow.show()
+        pass
 
     def getCUDNNversion(self):
-        return torch.backends.cudnn.version()
+        return "Not Detected"
 
     def get_processor_name(self):
         if platform.system() == "Windows":
-            return platform.processor()
-        elif platform.system() == "Darwin":
-            os.environ['PATH'] = os.environ['PATH'] + os.pathsep + '/usr/sbin'
-            command = "sysctl -n machdep.cpu.brand_string"
-            return subprocess.check_output(command).strip()
-        elif platform.system() == "Linux":
-            command = "cat /proc/cpuinfo"
-            all_info = subprocess.check_output(command, shell=True).decode().strip()
-            for line in all_info.split("\n"):
-                if "model name" in line:
-                    return re.sub(".*model name.*:", "", line, 1)
+            import cpuinfo
+            return cpuinfo.get_cpu_info()['brand_raw']
         return ""
 
     def predictNew(self):
@@ -386,6 +368,16 @@ class MainWindow(QMainWindow):
         PC_180_clockwise = os.getcwd() + "/templates/PC_rotate_180.png"
         PC_270_clockwise = os.getcwd() + "/templates/PC_rotate_left.png"
 
+        normal_rotated_45 = os.getcwd() + "/templates/normal_rotated_45_degrees.jpg"
+        normal_rotated_135 = os.getcwd() + "/templates/normal_rotated_135_degrees.jpg"
+        normal_rotated_225 = os.getcwd() + "/templates/normal_rotated_225_degrees.jpg"
+        normal_rotated_315 = os.getcwd() + "/templates/normal_rotated_315_degrees.jpg"
+
+        pc_rotated_45 = os.getcwd() + "/templates/pc_rotated_45_degrees.jpg"
+        pc_rotated_135 = os.getcwd() + "/templates/pc_rotated_135_degrees.jpg"
+        pc_rotated_225 = os.getcwd() + "/templates/pc_rotated_225_degrees.jpg"
+        pc_rotated_315 = os.getcwd() + "/templates/pc_rotated_315_degrees.jpg"
+
         # Initialize the list of templates and their corresponding labels
         templates = []
         labels = []
@@ -393,9 +385,15 @@ class MainWindow(QMainWindow):
         # Load the 4 templates and their labels
         template_paths = [signal_to_compare, signal_to_compare_90_clockwise, signal_to_compare_180_clockwise,
                           signal_to_compare_270_clockwise
-            , PC, PC_90_clockwise, PC_180_clockwise, PC_270_clockwise]
+            , PC, PC_90_clockwise, PC_180_clockwise, PC_270_clockwise, normal_rotated_45, normal_rotated_135,
+                          normal_rotated_225, normal_rotated_315, pc_rotated_45, pc_rotated_135, pc_rotated_225,
+                          pc_rotated_315]
         template_labels = ["normal", "rotated 90 clockwise", "rotated 180 clockwise", "rotated 270 clockwise", "PC",
-                           "PC rotated 90 clockwise", "PC rotated 180 clockwise", "PC rotated 270 clockwise"]
+                           "PC rotated 90 clockwise", "PC rotated 180 clockwise", "PC rotated 270 clockwise",
+                           "normal rotated 45 degrees",
+                           "normal rotated 135 degrees", "normal rotated 225 degrees", "normal rotated 315 degrees",
+                           "PC rotated 45 degrees",
+                           "PC rotated 135 degrees", "PC rotated 225 degrees", "PC rotated 315 degrees"]
         for template_path, template_label in zip(template_paths, template_labels):
             template = cv2.cvtColor(cv2.imread(template_path), cv2.COLOR_BGR2GRAY)
             templates.append(template)
@@ -444,15 +442,14 @@ class MainWindow(QMainWindow):
                     # Get the predicted class name
                     predicted_class = class_names[np.argmax(predictions[0])]
                     # Map the predicted class name to a shorthand label
-                    match predicted_class:
-                        case "danger":
-                            label = "D"
-                        case "preliminary_caution":
-                            label = "PC"
-                        case "caution":
-                            label = "C"
-                        case "proceed":
-                            label = "P"
+                    if predicted_class == "danger":
+                        label = "D"
+                    elif predicted_class == "preliminary_caution":
+                        label = "PC"
+                    elif predicted_class == "caution":
+                        label = "C"
+                    elif predicted_class == "proceed":
+                        label = "P"
                     # Label it on the image
                     cv2.putText(img_rgb, label, (pt[0], pt[1] - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.9,
                                 (0, 255, 255), 2)
@@ -471,37 +468,10 @@ class MainWindow(QMainWindow):
             head, tail = ntpath.split(path)
             # Return the file name, not the whole path
             return tail or ntpath.basename(head)
+
         # Open file browser
         filename = QFileDialog.getOpenFileName(self, 'Open file', 'c:\\', "Image files (*.jpg *.png)")
-        if filename[0] != "":
-            self.__mapname = filename[0]
-            self.ui.mapSelected.setText("Map: " + path_leaf(filename[0]) if len(path_leaf(filename[0])) < 15 else path_leaf(filename[0])[:20] + "...")
-            self.ui.mapSelected.setStyleSheet("color: #2aa14d;")
-            self.ui.predict.setEnabled(True)
-            self.ui.predict.setStyleSheet("""
-            #predict {
-                background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));
-                font: 300 10pt "Inter Light";
-                }
-                #predict::pressed {
-                background-color: qlineargradient(spread:pad, x1:0, y1:0.471591, x2:1, y2:0.489, stop:0 rgba(254, 121, 199, 180), stop:1 rgba(170, 85, 255, 180));
-                font: 300 10pt "Inter Light";
-                }
-            """)
-            self.ui.predict.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        else:
-            self.ui.mapSelected.setText("Map not selected.")
-            self.ui.mapSelected.setStyleSheet("color: #ff0000;")
-            self.ui.predict.setEnabled(False)
-            self.ui.predict.setStyleSheet("""
-            #predict {
-                background-color: rgb(184, 184, 184);
-                font: 300 10pt "Inter Light";
-                }
-            """)
-            self.ui.predictionstdout.hide()
-            self.ui.predictionOutputTitle.hide()
-            self.ui.selectMap_2.hide()
+        pass
 
     def result(self):  # Connector is blank, used solely for connecting from the Worker.
         pass
@@ -515,46 +485,46 @@ class MainWindow(QMainWindow):
         # GET BUTTON CLICKED
         btn = self.sender()
         btnName = btn.objectName()
-        match btnName:
-            # SHOW NEW PAGE
-            case "closeAppBtn":
-                try:
-                    self.__rt.stop()
-                    self.close()
-                    sys.exit(0)
-                except AttributeError:
-                    self.close()
-                    sys.exit(0)
-            case "btn_home":
-                # self.ui.titleLeftDescription.setText("Dashboard")  # SET PAGE
-                self.ui.stackedWidget.setCurrentWidget(
-                    self.ui.home)  # RESET ANOTHERS BUTTONS SELECTED
-                UIFunctions.resetStyle(self, btnName)
-                btn.setStyleSheet(
-                    UIFunctions.selectMenu(
-                        btn.styleSheet()))  # SELECT MENU
-                self.ui.titleLeftDescription.setText("Dashboard")
-            case "btn_credits":
-                # Check if the credits are already showing
-                if self.ui.credits.isHidden():
-                    self.ui.credits.show()
-                else:
-                    self.ui.credits.hide()
-            case "btn_help":
-                webbrowser.get().open("https://ameasere.com/ssgplus")
-            case "btn_report":
-                webbrowser.get().open("https://github.com/enigmapr0ject/SSGPlus/issues/new/choose")
-            case "btn_more":
-                webbrowser.get().open("https://ameasere.com/")
+        if btnName == "closeAppBtn":
+            try:
+                self.__rt.stop()
+                self.close()
+                sys.exit(0)
+            except AttributeError:
+                self.close()
+                sys.exit(0)
+        elif btnName == "btn_home":
+            # self.ui.titleLeftDescription.setText("Dashboard")  # SET PAGE
+            self.ui.stackedWidget.setCurrentWidget(
+                self.ui.home)  # RESET ANOTHERS BUTTONS SELECTED
+            UIFunctions.resetStyle(self, btnName)
+            btn.setStyleSheet(
+                UIFunctions.selectMenu(
+                    btn.styleSheet()))  # SELECT MENU
+            self.ui.titleLeftDescription.setText("Home")
+        elif btnName == "btn_dashboard":
+            self.ui.stackedWidget.setCurrentWidget(
+                self.ui.dashboard)  # RESET ANOTHERS BUTTONS SELECTED
+            UIFunctions.resetStyle(self, btnName)
+            btn.setStyleSheet(
+                UIFunctions.selectMenu(
+                    btn.styleSheet()))  # SELECT MENU
+            self.ui.titleLeftDescription.setText("Dashboard")
+        elif btnName == "btn_credits":
+            # Check if the credits are already showing
+            if self.ui.credits.isHidden():
+                self.ui.credits.show()
+            else:
+                self.ui.credits.hide()
+        elif btnName == "btn_help":
+            webbrowser.get().open("https://ameasere.com/railguard")
+        elif btnName == "btn_report":
+            webbrowser.get().open("https://github.com/ameasere/Railguard/issues/new/choose")
+        elif btnName == "btn_more":
+            webbrowser.get().open("https://ameasere.com/")
 
-    # RESIZE EVENTS
     def resizeEvent(self, event):
-        """
-        Resize event
-        :param event:
-        :return:
-        """
-        UIFunctions.resize_grips(self)
+        pass
 
     # MOUSE CLICK EVENTS
     def mousePressEvent(self, event):
@@ -570,16 +540,12 @@ class MainWindow(QMainWindow):
 class SplashScreen(QMainWindow):
     startAnimation = Signal()
     openMain = Signal()
-    failedToStartSignal = Signal()
+
     def __init__(self):
         QMainWindow.__init__(self)
-        self.__decrypted_data = None
-        self.__modelfile = None
+        self.__modelfile = os.getcwd() + "/model.h5"
         self.__modeltouse = None
         self.mainWindow = None
-        self.__cipher = None
-        self.__key = None
-        self.__modelcheck = None
         self.mainThread = None
         self.threadpool = QThreadPool()
         self.ui = Ui_SplashScreen()
@@ -589,8 +555,8 @@ class SplashScreen(QMainWindow):
         ########################################################################
 
         ## REMOVE TITLE BAR
-        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
         ## DROP SHADOW EFFECT
         self.shadow = QGraphicsDropShadowEffect(self)
         self.shadow.setBlurRadius(20)
@@ -606,11 +572,22 @@ class SplashScreen(QMainWindow):
         self.animation.setDuration(1000)
         self.animation.setStartValue(0.0)
         self.animation.setEndValue(0.99)
-        self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        self.animation.setEasingCurve(QEasingCurve.InOutQuart)
+
+        # Animation for glowing title
+        self.glowEffect = QGraphicsDropShadowEffect(self)
+        self.glowEffect.setBlurRadius(20)
+        self.glowEffect.setXOffset(0)
+        self.glowEffect.setYOffset(0)
+        self.glowEffect.setColor(QColor(255, 255, 255, 90))
+        self.ui.label_title.setGraphicsEffect(self.glowEffect)
 
         # Initial Text
-        self.ui.label_description.setText("<strong>WELCOME</strong> TO SSGPlus")
-
+        self.ui.label_description.setText("WELCOME TO <strong>RAILGUARD</strong>")
+        # Every 3 seconds, change the text
+        self.scrolltimer = QTimer()
+        self.scrolltimer.timeout.connect(self.updateText)
+        self.scrolltimer.start(3000)
         self.ui.selectMap.hide()
         self.ui.selectMap.clicked.connect(lambda: sys.exit(-1))
 
@@ -624,20 +601,35 @@ class SplashScreen(QMainWindow):
         # App Loading with Progress bar after each step
         self.ui.label_loading.setText("<strong>Importing</strong> libraries...")
         # Import tensorflow on a separate thread, and then update progress bar once it completes
-        self.timer = QtCore.QTimer()
-        self.timer.timeout.connect(lambda: self.progress(self.loadModel))
-        self.timer.start(35)
+        self.timer = QTimer()
+        self.timer.timeout.connect(lambda: self.progress(self.kerasLoadModel))
+        self.timer.start(20)
         self.import_thread = Thread(target=self.imports)
         self.import_thread.start()
+
+    def updateText(self):
+        import random
+        random = random.randint(0, 6)
+        if random == 0:
+            self.ui.label_description.setText("WELCOME TO <strong>RAILGUARD</strong>")
+        elif random == 1:
+            self.ui.label_description.setText("<strong>SUPERVISED</strong> SIGNALLING")
+        elif random == 2:
+            self.ui.label_description.setText("POWERED BY <strong>AI</strong>")
+        elif random == 3:
+            self.ui.label_description.setText("MADE WITH <strong>CUDA & CUDNN</strong>")
+        elif random == 4:
+            self.ui.label_description.setText("MADE WITH <strong>TENSORFLOW</strong>")
+        elif random == 5:
+            self.ui.label_description.setText("CROSS-PLATFORM <strong>SUPPORTED</strong>")
 
     def failedToStart(self):
         self.ui.selectMap.show()
 
     def fadeIn(self):
         def loadMain():
-            self.mainThread = Thread(target=self.triggerMainSignal)
-            self.mainThread.start()
-            self.close()
+            self.triggerMainSignal()
+
         self.ui.progressBar.hide()
         self.animation.setStartValue(0.0)
         self.animation.setEndValue(0.99)
@@ -666,80 +658,17 @@ class SplashScreen(QMainWindow):
             self.counter += 1 if self.counter < 40 else 0
 
     def imports(self):
-        os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-        import tensorflow as tf
-        import numpy as np
-        from Cryptodome.Cipher import AES
-        from Cryptodome.Util.Padding import unpad
-        import cv2
-        import io
-        import h5py
-        import psutil
-        import subprocess
-        import re
-        import torch
-        import GPUtil
-        global tf, np, AES, unpad, cv2, io, h5py, psutil, subprocess, re, torch, GPUtil
-
-    def decrypt(self):
-        self.__key = "2FNJh1Yyii88G0jNFKLJR9yNjVQn7nm6"
-        self.__cipher = AES.new(self.__key.encode(), AES.MODE_ECB)
-        contents = open("model.h5", "rb").read()
-        encrypted_data = base64.b64decode(contents)
-        # Unpad the data
-        decrypted_data = unpad(self.__cipher.decrypt(encrypted_data), AES.block_size)
-        self.__decrypted_data = decrypted_data
-        for i in range(61, 70):
-            self.ui.progressBar.setValue(i)
-            time.sleep(0.1)
-        # Write the decrypted data to the file
-        self.__modelfile = io.BytesIO(decrypted_data)
-        for i in range(71, 80):
-            self.ui.progressBar.setValue(i)
-            time.sleep(0.1)
-        self.kerasLoadModel()
+        pass
 
     def initializeModel(self):
         try:
-            os.remove(os.getcwd() + '/model.h5')
             self.__modeltouse = tf.keras.models.load_model(h5py.File(self.__modelfile, 'r'))
-            for i in range(81, 101):
+            for i in range(40, 101):
                 self.ui.progressBar.setValue(i)
                 time.sleep(0.1)
             self.startup()
         except Exception as e:
             print(repr(e))
-
-    def downloadModel(self):
-        hash = sha256("dDhAI4aDx7tqJmqXwhLn".encode()).hexdigest()
-        headers = {"Authorization": f"Bearer {hash}"}
-        try:
-            r = requests.get("https://api.ameasere.com/ssgplus/model", headers=headers, stream=True)
-            if r.status_code == 200:
-                total_size = int(r.headers.get('content-length', 0))
-                with open("model.h5", 'wb') as file:
-                    for chunk in r.iter_content(chunk_size=131072):
-                        if chunk:
-                            file.write(chunk)
-                            percentageProgress = int(100 * ((file.tell() / total_size) * 0.2)) + 40
-                            self.ui.progressBar.setValue(percentageProgress)
-                self.decryptModel()
-        except ConnectionError:
-            pass
-        except TimeoutError:
-            pass
-        except requests.exceptions.RequestException:
-            pass
-
-    def loadModel(self):
-        self.ui.label_loading.setText("<strong>Downloading</strong> model...")
-        self.download_thread = Thread(target=self.downloadModel)
-        self.download_thread.start()
-
-    def decryptModel(self):
-        self.ui.label_loading.setText("<strong>Decrypting</strong> model...")
-        self.decrypt_thread = Thread(target=self.decrypt)
-        self.decrypt_thread.start()
 
     def kerasLoadModel(self):
         self.ui.label_loading.setText("<strong>Initialising</strong> model...")
@@ -747,45 +676,34 @@ class SplashScreen(QMainWindow):
         self.initialize_thread.start()
 
     def startup(self):
-        # Compare the model to the original
-        original_model_sum = "51bc6b3e27bf471bef6223c61d5f37fe5df4f628ac34a0537f05d08aab8d40a9"
-        decrypted_model_sum = sha256(self.__decrypted_data).hexdigest()
-        if original_model_sum == decrypted_model_sum:
-            self.__modelcheck = True
-            self.ui.label_loading.setText("<strong>Verified.</strong> Starting SSGPlus...")
-            self.ui.label_loading.setStyleSheet("color: #00cc30; font: 300 10pt \"Inter Light\";")
-            time.sleep(2)
-            self.startAnimation.emit()
-        else:
-            self.__modelcheck = False
-            self.ui.label_loading.setText("<strong>Error occurred.</strong> Could not start SSGPlus.")
-            self.ui.label_loading.setStyleSheet("color: #cc0000; font: 300 10pt \"Inter Light\";")
-            # Place an exit button udnerneath
-            self.failedToStartSignal.emit()
-
-
+        self.ui.label_loading.setText("Starting Railguard...")
+        self.scrolltimer.stop()
+        self.scrolltimer.timeout.disconnect()
+        self.scrolltimer = None
+        self.ui.label_loading.setStyleSheet(
+            "font: 450 10pt \"Inter Medium\"; background-color: transparent; color: #04b837;")
+        time.sleep(2)
+        self.startAnimation.emit()
 
 
 if __name__ == "__main__":
     # faulthandler.enable()
-    match platform.system():  # Check the OS
-        case "Windows":  # If Windows
-            import ctypes  # Windows exclusive library
+    if platform.system() == "Windows":  # Check the OS
+        import ctypes  # Windows exclusive library
 
-            # arbitrary string, can be anything
-            myappid = 'theenigmaproject.ai.ssgplus.001'
-            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(
-                myappid)  # Set the AppID. Needed for
-            # taskbar icon and window icons to work.
-            # Variable holding the value for if we have a custom titlebar or
-            # not. This is broken
-            titleBarFlag = True
-            # on any other OS.
-        case other:
-            titleBarFlag = False
+        # arbitrary string, can be anything
+        myappid = 'ameasere.ai.railguard.004'
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(
+            myappid)  # Set the AppID. Needed for
+        # taskbar icon and window icons to work.
+        # Variable holding the value for if we have a custom titlebar or
+        # not. This is broken
+        titleBarFlag = True
+        # on any other OS.
+    else:
+        titleBarFlag = False
     app = QApplication(sys.argv)
     window = SplashScreen()
     window.startAnimation.connect(window.fadeIn)
     window.openMain.connect(window.openMainWindow)
-    window.failedToStartSignal.connect(window.failedToStart)
     sys.exit(app.exec())

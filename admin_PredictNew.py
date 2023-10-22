@@ -1,5 +1,6 @@
-import tensorflow as tf
 import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+import tensorflow as tf
 import cv2
 import numpy as np
 model = tf.keras.models.load_model("model.h5")
@@ -34,7 +35,7 @@ for template_path, template_label in zip(template_paths, template_labels):
     labels.append(template_label)
 
 # Set the threshold for matching
-threshold = 0.8
+threshold = 0.7
 
 # Initialize the count of detected signals
 count = 0

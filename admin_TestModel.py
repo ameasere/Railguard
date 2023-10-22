@@ -1,8 +1,8 @@
 # Test the model and highlight the results
-
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
 model = tf.keras.models.load_model("model.h5")
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 test_dir = os.getcwd() + "/data/validation/"

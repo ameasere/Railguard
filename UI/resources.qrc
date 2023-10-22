@@ -1,9 +1,13 @@
 <RCC>
   <qresource prefix="images">
+    <file>railguard.ico</file>
+    <file>../../beta.png</file>
     <file>success_splash_label.png</file>
-    <file>ssg+.png</file>
+    <file>railguard.png</file>
   </qresource>
   <qresource prefix="icons">
+    <file>../images/icons/layout_hover.png</file>
+    <file>../images/icons/layout_unhover.png</file>
     <file>../images/icons/chevrons-right_hover.png</file>
     <file>../images/icons/chevrons-right_unhover.png</file>
     <file>../images/icons/arrow-down_hover.png</file>
