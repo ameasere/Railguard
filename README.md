@@ -30,10 +30,6 @@
   <a href="#license">License</a>
 </p>
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/55900441/213927396-2fc23f79-328d-43cf-b504-404f836d17f1.gif">
-</p>
-
 ## NOTICE: This project is no longer being maintained due to an internal discussion with SCR's Board of Directors. All current source code is pushed into the `dev` branch, which is unfinished and is simply the state the project was in when the discussion concluded. The `master` branch has the working version of the AI, and `dev` is what the project was going to be revamped to look like.
 
 ## Key Features
